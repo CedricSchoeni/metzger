@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/NesriDiscount/assets/css/main.css">
     <link rel="stylesheet" href="/NesriDiscount/assets/css/style.css">
     <link rel="stylesheet" href="/NesriDiscount/assets/css/camera.css">
+    <link rel="stylesheet" href="/NesriDiscount/assets/css/form.css">
     <script src="/NesriDiscount/assets/js/jquery.js"></script>
     <script src="/NesriDiscount/assets/js/jquery-migrate-1.1.1.js"></script>
     <script src="/NesriDiscount/assets/js/superfish.js"></script>
