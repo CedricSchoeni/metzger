@@ -34,7 +34,7 @@
 <header>
     <div class="container_12">
         <div class="grid_12">
-            <h1><a href="index"><img src="/NesriDiscount/assets/images/logo.png" alt="Boo House"></a> </h1>
+            <h1><a href="index"><img src="/NesriDiscount/assets/images/notstolen_logo.png" alt="Boo House"></a> </h1>
             <div class="menu_block">
 
                 <nav  class="" >
@@ -42,7 +42,7 @@
                         <li class="current"><a href="index">Home</a></li>
                         <li><a href="about">About</a></li>
                         <li><a href="products">Products</a></li>
-                        <li><a href="team">Our Team</a></li>
+                        <li><a href="partners">Our Partners</a></li>
                         <li><a href="user">You</a></li>
                     </ul>
                 </nav>

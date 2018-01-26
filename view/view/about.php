@@ -8,31 +8,31 @@
         <li>
           <div class="count">1</div>
           <div class="extra_wrapper">
-            <div class="col3"><a href="#">Fusce quis fermentum nisl tempus comelo. </a></div>Rerna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida. 
+            <div class="col3"><a href="#">We come first.</a></div>The customer is second in every case, we are always first.
           </div>
         </li>
         <li>
           <div class="count">2</div>
           <div class="extra_wrapper">
-            <div class="col3"><a href="#">Fusce quis fermentum nisl tempus ctumylo. </a></div>Rerna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida. 
+            <div class="col3"><a href="#">Make the money flow </a></div>Allow users to be as free as possible while still generating money
           </div>
         </li>
         <li>
           <div class="count">3</div>
           <div class="extra_wrapper">
-            <div class="col3"><a href="#">Fusce quis fermentum nisl tempus coetumyl. </a></div>Rerna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida. 
+            <div class="col3"><a href="#">Equal treatment to all users </a></div>All users are to be treated equally as bad as the next.
           </div>
         </li>
       </ul>
       <h3 class="head1 h1">Our advantages</h3>
       <ul class="list1 col3">
-        <li><a href="#">Bertoce quis fermentuempus coetum reto</a></li>
-        <li><a href="#">Lorem ipsum dolor sit amet, consectetur</a></li>
-        <li><a href="#">In mollis erat mattis neque facilisis sit ame </a></li>
-        <li><a href="#">Cras facilisis, nulla vel viverra auctorle </a></li>
-        <li><a href="#">Proin pharetra luctus diam, a scelerisqu </a></li>
-        <li><a href="#">Aliquam nibh anterno mertilo neiner</a></li>
-        <li><a href="#">Etiam dui eros, laoreet sit amet aniloto me</a></li>
+        <li><a href="#">Easy Registering.</a></li>
+        <li><a href="#">No Mail validation after registering.</a></li>
+        <li><a href="#">Easy selling of your own products.</a></li>
+        <li><a href="#">No constraints on masses or validity of your offers. </a></li>
+        <li><a href="#">Simple Buying </a></li>
+        <li><a href="#">Great Design</a></li>
+        <li><a href="#">Many Promises. (none guaranteed)</a></li>
       </ul>
     </div>
     <div class="grid_6 prefix_1">
@@ -44,24 +44,24 @@
       <div class="team">
         <div class="grid_2">
           <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
-          <div class="col3"><a href="#">Irma Pool</a></div>Rerna is sed feugiat cras pulvinar lorem. 
+          <div class="col3"><a href="#">Cedric Somali</a></div>The whole Team, Web-Developer.
         </div>
         <div class="grid_2">
           <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
-          <div class="col3"><a href="#">Mark Johnson</a></div>Rerna is sed feugiat cras pulvinar lorem. 
+          <div class="col3"><a href="#">Campiotti</a></div>Product Owner, owns all of this.
         </div>
         <div class="grid_2">
           <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
-          <div class="col3"><a href="#">David Kreinstein</a></div>Rerna is sed feugiat cras pulvinar lorem. 
+          <div class="col3"><a href="#">Philip Metzgerman</a></div>Scrum Master, may not actually be master of SCRUM.
         </div>
         <div class="clear"></div>
         <div class="grid_2">
           <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
-          <div class="col3"><a href="#">Samantha Jackobs</a></div>Rerna is sed feugiat cras pulvinar lorem. 
+          <div class="col3"><a href="#">Egzone Nesri</a></div>Prior Owner to NesriDiscount, now just Nesri.
         </div>
         <div class="grid_2">
-          <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
-          <div class="col3"><a href="#">Olivia Smith</a></div>Rerna is sed feugiat cras pulvinar lorem. 
+          <img src="http://scontent.cdninstagram.com/t51.2885-15/s480x480/e15/c0.75.612.612/18888360_256769618132357_737980307503841280_n.jpg?ig_cache_key=MTUzMDc0MjkzNzU4MjI0MDQ4Ng%3D%3D.2.c" alt="">
+          <div class="col3"><a href="#">Mark Zucc</a></div>Founder of Facebook, helped us make a facebook page.
         </div>
       </div>
     </div>
