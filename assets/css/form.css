@@ -1,11 +1,11 @@
 /****Form****/
 
-#form {
+.form {
 padding-top: 14px;
 margin-bottom: 34px;
 }
 
-#form input {
+.form input {
 	 border: 1px solid #d4d4d4;
 	 	 padding: 4px 12px 5px;
 	background-color: #fff;
@@ -20,7 +20,7 @@ margin-bottom: 34px;
 	-webkit-box-sizing: border-box; /* Safari */
 }
 
-#form textarea {
+.form textarea {
 	height: 269px;
 	overflow: auto;
 	background-color: #fff;
@@ -38,7 +38,7 @@ margin-bottom: 34px;
 	margin: 0;
 	
 }
-#form label {
+.form label {
 	position:relative;
 	display: block;
 	min-height: 41px;
@@ -51,7 +51,7 @@ margin-bottom: 34px;
 
 
 
-#form .error, #form .empty {
+.form .error, .form .empty {
 	color: #FF0000;
 	display: none;
 	font-size: 10px;
@@ -64,7 +64,7 @@ margin-bottom: 34px;
 	float:left;
 }
 
-#form .error-empty {
+.form .error-empty {
 	display:none;
 	float:left;
 }
@@ -87,11 +87,11 @@ margin-bottom: 34px;
 	margin-left: 30px;
 }
 
-#form .message {
+.form .message {
 	width: 100%;
 }
 
-#form .btns span {
+.form .btns span {
 	display: inline-block;
 	width: 13px;
 }
@@ -102,7 +102,7 @@ margin-bottom: 34px;
 	line-height: 0;
 }
 
-#form .success {
+.form .success {
 	display: none;
 	position: absolute;
 	width: 220px;

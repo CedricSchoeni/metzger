@@ -14,10 +14,11 @@ class FormHelper extends BaseHelper
     public function createForm(string $name,
                                string $action,
                                string $method = 'POST',
-                               string $id = "form",
+                               string $id = "",
+                               string $class="form",
                                array $options = []
     ):string{
-        return "<form action='$action' method='$method' name='$name' id='$id' enctype=\"multipart/form-data\">";
+        return "<form action='$action' method='$method' name='$name' id='$id' class='$class' enctype=\"multipart/form-data\">";
     }
 
     public function inputGroup(string $name, string $classes, string $type,array $options = [], $extra="input"){
