@@ -16,6 +16,8 @@
     <div class="clear"></div>
     <div class="port">
         <?php
+        var_dump($this->products);
+        if(isset($this->products))
         for ($i=1; $i<10; $i++) {
 
 

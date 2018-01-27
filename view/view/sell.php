@@ -35,7 +35,7 @@
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid number</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Price">
-                    <input type="number" min="0.95" name="price" placeholder="Price">
+                    <input type="number" min="1" name="price" placeholder="Price">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <div class="btns">
