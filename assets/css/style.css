@@ -335,7 +335,7 @@ h1 a img {
 	margin-bottom: 18px;
 }
 
-.icon .title {
+.icon .title, .extra_wrapper .title {
 	font: 24px/33px 'Open Sans', sans-serif;
 	text-transform: uppercase;
 	color: #626262;
