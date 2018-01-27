@@ -11,7 +11,7 @@
     <div class="container_12">
         <div class="grid_12">
             <h3><span>Sell your Product</span></h3>
-            <?php echo $this->formHelper->createForm("shop","/shop/add","POST","Sell"); ?>
+            <?php echo $this->formHelper->createForm("shop","/shop/sell","POST","Sell"); ?>
             <div class="success_wrapper">
                 <div class="success">Data submitted!<br>
                     <strong>Your article can now be bought in the store.</strong>

@@ -14,7 +14,7 @@ class fileUploader
     public function upload($file)
     {
         
-        $target_dir = __DIR__."/../assets/images/blog/";
+        $target_dir = __DIR__."/../assets/images/products/";
         $target_file = $target_dir . basename($file["name"]);
         $extension= substr($file['name'], strripos($file['name'],'.'));
         $uploadOk = 1;

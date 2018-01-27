@@ -10,6 +10,7 @@ namespace controller;
 
 
 use models\Product;
+use helper\fileUploader;
 
 class ShopController extends BaseController implements ControllerInterface
 {
@@ -21,7 +22,27 @@ class ShopController extends BaseController implements ControllerInterface
 
     public function add()
     {
-        $product = new Product();
+        if(!$this->renderer->sessionManager->isSet("User")){
+            $this->httpHandler->redirect("base","index");
+        }
+
+        if($this->httpHandler->isPost()) {
+            $data = $this->httpHandler->getData();
+            $filename=null;
+            if(count($_FILES)>0){
+                $fileuploder = new fileUploader();
+                $filename = $fileuploder->upload($_FILES['image']);
+            }
+            $product = new Product();
+            $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","ID");
+            $data['image']=$filename;
+            $product->patchEntity($data);
+            if($product->isValid()){
+                $product->save();
+                $this->httpHandler->redirect("shop","products");
+            }
+        }
+
 
     }
 
@@ -38,6 +59,10 @@ class ShopController extends BaseController implements ControllerInterface
     public function edit(int $id)
     {
         // TODO: Implement edit() method.
+    }
+
+    public function sell(){
+        $this->add();
     }
 
 }
