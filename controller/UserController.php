@@ -97,4 +97,5 @@ class UserController extends BaseController implements ControllerInterface
     public function register(){
         $this->add();
     }
+
 }
