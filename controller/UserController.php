@@ -92,4 +92,7 @@ class UserController extends BaseController implements ControllerInterface
         session_destroy();
         $this->httpHandler->redirect("user","login");
     }
+    public function register(){
+        $this->add();
+    }
 }

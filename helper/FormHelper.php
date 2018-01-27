@@ -14,14 +14,15 @@ class FormHelper extends BaseHelper
     public function createForm(string $name,
                                string $action,
                                string $method = 'POST',
+                               string $id = "form",
                                array $options = []
     ):string{
-        return "<form action='$action' method='$method' name='$name' enctype=\"multipart/form-data\">";
+        return "<form action='$action' method='$method' name='$name' id='$id' enctype=\"multipart/form-data\">";
     }
 
     public function inputGroup(string $name, string $classes, string $type,array $options = [], $extra="input"){
-        if(!isset($options['labelText'])){
-            $options['labelText']="labelText";
+        if(!isset($options['label'])){
+            $options['label']="";
         }
         if(!isset($options['placeholder'])){
             $options['placeholder']="";
@@ -58,6 +59,46 @@ class FormHelper extends BaseHelper
         $this->renderer->setAttribute('id',$options['id']);
         $this->renderer->setAttribute('extra',$extra);
         $this->renderer->renderByFileName('input-group.php');
+    }
+    public function labelInput(string $name, string $classes, string $type,array $options = [], $extra="input"){
+        if(!isset($options['label'])){
+            $options['label']="";
+        }
+        if(!isset($options['placeholder'])){
+            $options['placeholder']="";
+        }
+        if(!isset($options['required'])){
+            $options['required']=false;
+        }
+        if(!isset($options['id'])){
+            $options['id']=$name;
+        }
+        if(!isset($options['onchange'])){
+            $options['onchange']="";
+        }
+        if(!isset($options['onkeyup'])){
+            $options['onkeyup']="";
+        }
+        if(!isset($options['maxlength'])){
+            $options['maxlength']=null;
+        }
+        $this->renderer->setAttribute('name', $name);
+        $this->renderer->setAttribute('classes', $classes);
+        $this->renderer->setAttribute('type', $type);
+        $this->renderer->setAttribute('options', $options);
+        $this->renderer->setAttribute('labelText', $options['label']);
+        if(isset($options['placeholder'])){
+            $this->renderer->setAttribute('placeholder',$options["placeholder"]);
+        }
+        if(isset($options['required'])){
+            $this->renderer->setAttribute('required',$options['required']);
+        }
+        $this->renderer->setAttribute('maxlength',$options['maxlength']);
+        $this->renderer->setAttribute('onchange',$options['onchange']);
+        $this->renderer->setAttribute('onkeyup',$options['onkeyup']);
+        $this->renderer->setAttribute('id',$options['id']);
+        $this->renderer->setAttribute('extra',$extra);
+        $this->renderer->renderByFileName('label-input.php');
     }
 
     public function input(
