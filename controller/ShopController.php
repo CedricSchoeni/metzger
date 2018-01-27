@@ -41,6 +41,7 @@ class ShopController extends BaseController implements ControllerInterface
                 $product->save();
                 $this->httpHandler->redirect("shop","products");
             }
+            var_dump($data);
         }
 
 

@@ -27,7 +27,7 @@
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Image">
-                    <input type="file" name="Image" placeholder="Product-Image.jpeg">
+                    <input type="file" name="image" placeholder="Product-Image.jpeg">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid image.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Stock">
