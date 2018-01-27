@@ -19,7 +19,7 @@
                 <a href="https://plus.google.com/102227333673129621016"></a>
             </div>
             <div class="copy">
-                NesriDiscount &copy; 2018 | <a href="#">Privacy Policy</a>
+                NesriDiscount &copy; 2018 | <a href="https://www.nsa.gov/resources/everyone/foia/assets/files/policy1-5.pdf" target="_blank">Privacy Policy</a>
             </div>
         </div>
     </div>
