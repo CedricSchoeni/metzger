@@ -39,8 +39,12 @@ class ShopController extends BaseController implements ControllerInterface
             $product->patchEntity($data);
             if($product->isValid()){
                 $product->save();
-                $this->httpHandler->redirect("shop","products");
+                //$this->httpHandler->redirect("shop","products");
             }
+            if($product->isValid())
+                echo "trulmeo";
+            else
+                echo"falselmeo";
             var_dump($data);
         }
 

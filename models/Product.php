@@ -28,13 +28,13 @@ class Product extends Entity
     protected function defaultValidationConfiguration()
     {
         //parent::defaultValidationConfiguration();
-        $this->validator->isRequired('Productname');
+        $this->validator->isRequired('productname');
         $this->validator->isRequired('price');
         $this->validator->isRequired('userfk');
         $this->validator->isRequired('stock');
-        $this->validator->minLength('name',1);
-        $this->validator->maxLength('name',100);
-        $this->validator->minLength('description',5);
+        $this->validator->minLength('productname',1);
+        $this->validator->maxLength('productname',32);
+        $this->validator->minLength('description',1);
     }
 
 

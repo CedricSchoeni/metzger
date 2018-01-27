@@ -19,11 +19,11 @@
             </div>
             <fieldset>
                 <label class="Productname">
-                    <input type="text" name="Productname" placeholder="Product name">
+                    <input type="text" name="productname" placeholder="Product name">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Description">
-                    <textarea name="Description" placeholder="Description of Product"></textarea>
+                    <textarea name="description" placeholder="Description of Product"></textarea>
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Image">
@@ -35,7 +35,7 @@
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid number</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Price">
-                    <input type="number" min="0.95" name="Productname" placeholder="Price">
+                    <input type="number" min="0.95" name="price" placeholder="Price">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <div class="btns">
