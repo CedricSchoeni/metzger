@@ -18,15 +18,15 @@
             </div>
             <fieldset>
                 <label class="username">
-                    <input type="text" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="password">
-                    <input type="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="email">
-                    <input type="text" placeholder="E-mail">
+                    <input type="text" name="email" placeholder="E-mail">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
 
@@ -45,11 +45,11 @@
             </div>
             <fieldset>
                 <label class="username">
-                    <input type="text" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="password">
-                    <input type="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
 
