@@ -16,21 +16,26 @@
     <div class="clear"></div>
     <div class="port">
         <?php
-        var_dump($this->products);
-        if(isset($this->products))
-        for ($i=1; $i<10; $i++) {
 
+        $products=$this->products;
+        //var_dump($products);
+        $noImg="https://i.imgur.com/72xjDmY.jpg";
+        $path="/NesriDiscount/assets/images/products/";
+        for ($i=0; $i<count($products); $i++) {
+            $image=$noImg;
+            if($products[$i]['Image']!=null)
+                $image=$path.$products[$i]['Image'];
 
             ?>
             <div class="grid_4">
-                <a href="https://i.imgur.com/72xjDmY.jpg" class="gal"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a>
-                <div class="text1 col1">Product Name</div>
-                Short Description or Price<br>
-                <a href="#">Go to Product Details</a>
+                <a href="<?php echo$image?>" class="gal"><img src="<?php echo$image?>" alt=""></a>
+                <div class="text1 col1"><?php echo$products[$i]['Productname']?></div>
+                <?php echo$products[$i]["Description"]?><br>
+                <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>
             </div>
             <?php
             if ($i % 3 == 0)
-                echo "<div class=\"clear\">$i</div>";
+                echo "<div class=\"clear\"></div>";
         }?>
 
     </div>

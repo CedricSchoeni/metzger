@@ -70,8 +70,8 @@ class ShopController extends BaseController implements ControllerInterface
         $this->add();
     }
     public function products(){
-        $statement=$this->renderer->queryBuilder->setMode(0)->setTable('product')->executeStatement();
-        $this->renderer->setAttribute('products',$statement);
+        $statement=$this->renderer->queryBuilder->setMode(0)->setTable('product');//->addCond('product','stock',2,'0','')->executeStatement();
+        $this->renderer->setAttribute('products',$statement->executeStatement());
     }
 
 }
