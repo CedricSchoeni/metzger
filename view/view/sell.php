@@ -10,8 +10,8 @@
 <div class="content">
     <div class="container_12">
         <div class="grid_12">
-            <h3><span>Register</span></h3>
-            <?php echo $this->formHelper->createForm("shop","/shop/sell","POST","Sell"); ?>
+            <h3><span>Sell your Product</span></h3>
+            <?php echo $this->formHelper->createForm("shop","/shop/add","POST","Sell"); ?>
             <div class="success_wrapper">
                 <div class="success">Data submitted!<br>
                     <strong>Your article can now be bought in the store.</strong>
@@ -27,15 +27,15 @@
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Image">
-                    <input type="file" name="Image" placeholder="">
+                    <input type="file" name="Image" placeholder="Product-Image.jpeg">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid image.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Stock">
-                    <input type="number" name="stock" placeholder="">
+                    <input type="number" min="1" name="stock" placeholder="Stock">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid number</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Price">
-                    <input type="number" name="Productname" placeholder="21.00">
+                    <input type="number" min="0.95" name="Productname" placeholder="Price">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <div class="btns">

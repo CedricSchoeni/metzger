@@ -12,6 +12,7 @@ namespace models;
 class Product extends Entity
 {
     private $id;
+    public $userfk;
     public $productname;
     public $description;
     public $image;
@@ -29,6 +30,7 @@ class Product extends Entity
         //parent::defaultValidationConfiguration();
         $this->validator->isRequired('Productname');
         $this->validator->isRequired('price');
+        $this->validator->isRequired('userfk');
         $this->validator->isRequired('stock');
         $this->validator->minLength('name',1);
         $this->validator->maxLength('name',100);
@@ -38,7 +40,7 @@ class Product extends Entity
 
     public function save()
     {
-        $this->queryBuilder->setMode(2)->setColsWithValues("Product",array('id','Productname'),array('',$this->productname))->executeStatement();
+        $this->queryBuilder->setMode(2)->setColsWithValues("Product",array('id','dbuserfk','Productname','DBUserFK','Image','Stock','Price','Description'),array('',$this->userfk,$this->productname,$this->image,$this->stock,$this->price,$this->description))->executeStatement();
     }
 
     /**

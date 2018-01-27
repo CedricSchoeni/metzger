@@ -45,6 +45,9 @@
                         <li><a href="partners">Our Partners</a></li>
                         <li><a href="contact">Contact Us</a></li>
                         <li><a href="user">You</a></li>
+                        <?php if(isset($_SESSION['User'])){ ?>
+                        <li><a href="/shop/sell">Sell</a></li>
+                        <?php }?>
                     </ul>
                 </nav>
 
