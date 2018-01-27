@@ -36,7 +36,6 @@
         <div class="grid_12">
             <h1><a href="index"><img src="/NesriDiscount/assets/images/notstolen_logo.png" alt="Boo House"></a> </h1>
             <div class="menu_block">
-
                 <nav  class="" >
                     <ul class="sf-menu">
                         <li class="current"><a href="index">Home</a></li>
@@ -50,7 +49,6 @@
                         <?php }?>
                     </ul>
                 </nav>
-
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>

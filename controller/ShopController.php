@@ -9,6 +9,8 @@
 namespace controller;
 
 
+use models\Product;
+
 class ShopController extends BaseController implements ControllerInterface
 {
 
@@ -19,7 +21,8 @@ class ShopController extends BaseController implements ControllerInterface
 
     public function add()
     {
-        // TODO: Implement add() method.
+        $product = new Product();
+
     }
 
     public function view(int $id)

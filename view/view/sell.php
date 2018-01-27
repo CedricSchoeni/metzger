@@ -40,7 +40,7 @@
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->
-                    <button type="submit" class="btn">Register</button>
+                    <button type="submit" class="btn">Sell Product</button>
                 </div>
             </fieldset>
             <?php echo $this->formHelper->endForm(); ?>
