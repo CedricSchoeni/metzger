@@ -80,5 +80,20 @@ class ShopController extends BaseController implements ControllerInterface
 
         $this->renderer->setAttribute('product',$statement->executeStatement());
     }
+    public function buy(int $id){
+        if($this->httpHandler->isPost()){
+            $data = $this->httpHandler->getData();
+            if($data['id']!=$id || $data['stock']<$data['amount']){
+                $this->httpHandler->redirect("base","index");
+                die("error, invalid purchase");
+            }
+            $this->renderer->queryBuilder->setMode(1)->setTable('product')
+                ->setColsWithValues('product',array('stock'),array($data['stock']-$data['amount']))
+                ->addCond('product','id',0,$data['id'],'')
+                ->executeStatement();
+            $this->httpHandler->redirect('shop','products');
+        }
+
+    }
 
 }
