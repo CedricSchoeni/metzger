@@ -27,8 +27,9 @@ if($product['image']!=null)
           <li>Rating: <?php echo$product['rating']?>/5</li>
           <?php }?>
           <li>
-              <?php echo $this->formHelper->createForm("user","/user/register","POST","Register"); ?>
+              <?php echo $this->formHelper->createForm("user","/shop/buy","POST","Buy"); ?>
               <input type="number" name="stock" value="1" max="<?php echo$product['stock']?>">
+              <input type="hidden" name="id" value="<?php echo$product['id']?>">
               <div class="btns">
                   <button type="submit" class="btn">Buy</button>
               </div>
