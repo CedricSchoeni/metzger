@@ -9,6 +9,9 @@ if($product['discount']!=null)
 if($product['image']!=null)
     $image=$path.$product['image'];
 
+/*$target_dir = __DIR__."/../../assets/images/products/";
+if(!file_exists($target_dir.$image))
+    echo$image;*/ //trying to make sure if the image does not exist/cannot be found then it will be replaced by default no image link
 ?>
 <div class="content">
   <div class="container_12">
