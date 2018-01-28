@@ -14,7 +14,7 @@
           </div>              
       </div>
       <div class="grid_6 prefix_1">
-        <form class="form">
+        <form class="form" id="form">
         <div class="success_wrapper">
         <div class="success">Contact form submitted!<br>
         <strong>We will be in touch soon.</strong> </div></div>

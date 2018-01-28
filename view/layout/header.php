@@ -23,6 +23,7 @@
     <script src="/NesriDiscount/assets/js/jquery.equalheights.js"></script>
     <script src="/NesriDiscount/assets/js/jquery.easing.1.3.js"></script>
     <script src="/NesriDiscount/assets/js/camera.js"></script>
+    <script src="/NesriDiscount/assets/js/forms.js"></script>
     <!-- Products Page -->
     <link rel="stylesheet" href="/NesriDiscount/assets/css/touchTouch.css">
     <script src="/NesriDiscount/assets/js/touchTouch.jquery.js"></script>
