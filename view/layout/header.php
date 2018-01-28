@@ -40,10 +40,10 @@
                     <ul class="sf-menu">
                         <li class="current"><a href="index">Home</a></li>
                         <li><a href="about">About</a></li>
-                        <li><a href="products">Products</a></li>
+                        <li><a href="/shop/products">Products</a></li>
                         <li><a href="partners">Our Partners</a></li>
                         <li><a href="contact">Contact Us</a></li>
-                        <li><a href="user">You</a></li>
+                        <li><a href="/user/user">You</a></li>
                         <?php if(isset($_SESSION['User'])){ ?>
                         <li><a href="/shop/sell">Sell</a></li>
                         <?php }?>
