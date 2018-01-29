@@ -34,7 +34,7 @@
                 <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>
             </div>
             <?php
-            if ($i % 3 == 0)
+            if ($i % 3 == 0 && $i!=1 &&$i!=0)
                 echo "<div class=\"clear\"></div>";
         }?>
 
