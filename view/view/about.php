@@ -56,7 +56,7 @@
         </div>
         <div class="clear"></div>
         <div class="grid_2">
-          <img src="https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/p160x160/23722402_1802913026417503_1420565559362832366_n.jpg?oh=2214526e692cd66b695fa6c26f6a9341&oe=5B222A81" alt="">
+          <img src="/NesriDiscount/assets/images/nesri.jpg" alt="">
           <div class="col3"><a href="#">Eggzone Nesri</a></div>Prior Owner to NesriDiscount, now just Nesri.
         </div>
         <div class="grid_2">
