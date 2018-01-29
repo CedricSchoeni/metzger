@@ -26,7 +26,6 @@
                     <input type="password" name="password" placeholder="Password">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
-
                 <div class="btns">
                     <button type="submit" class="btn">Login</button>
                 </div>
@@ -52,7 +51,6 @@
                     <input type="email" name="email" placeholder="E-mail" required>
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
-
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->
                     <button type="submit" class="btn">Register</button>
@@ -61,7 +59,30 @@
             <?php echo $this->formHelper->endForm(); ?>
             <?php }else{?>
                 <h3><span>Profile</span></h3>
-
+                <?php echo $this->formHelper->createForm("user","/user/edit","POST","Edit"); ?>
+                <?php $user = $this->user[0]?>
+                <fieldset>
+                    <div class="success_wrapper">
+                        <div class="success">Data submitted!<br>
+                            <strong>Your data has been updated!</strong>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <label class="username">
+                            <input type="text" name="username" placeholder="Username" value="<?php echo$user['username']?>" required maxlength="16">
+                            <br class="clear">
+                            <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+                        <label class="email">
+                            <input type="email" name="email" placeholder="E-mail" value="<?php echo$user['email']?>" required>
+                            <br class="clear">
+                            <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
+                        <div class="btns">
+                            <!--<button type="reset" class="btn">Clear</button>-->
+                            <button type="submit" class="btn">Edit</button>
+                        </div>
+                </fieldset>
+                <?php echo $this->formHelper->endForm(); ?>
+                <h2><span>Logout</span></h2>
                 <div class="center">
                     <div class="buttons">
                         <a class="btn" type="submit" href="/user/logout">Logout</a>
