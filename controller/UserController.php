@@ -66,11 +66,11 @@ class UserController extends BaseController implements ControllerInterface
                 $this->httpHandler->redirect('base', 'index');
             } else {
                 $this->httpHandler->redirect('user','user');
-                echo'wonrg';
+                //echo'wonrg';
             }
         } else {
             if ($this->renderer->sessionManager->isSet('User')){
-                echo'right';
+                //echo'right';
                 $this->httpHandler->redirect('base','index');
             }
         }

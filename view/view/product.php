@@ -16,7 +16,8 @@ if(!file_exists($target_dir.$image))
   <div class="container_12">
     <div class="grid_12">
       <h3 class="pb1"><span>Product Detail View</span></h3>
-      <img src="<?php echo$image?>" alt="product_image" class="img_inner fleft">
+        <div class="grid_8"><img src="<?php echo$image?>" alt="product_image" class="img_inner fleft"></div>
+
       <div class="extra_wrapper">
         <div class="title"><?php echo$product['productname']?></div>
       <ul class="list l1">
