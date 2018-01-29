@@ -40,15 +40,15 @@
             </div>
             <fieldset>
                 <label class="username">
-                    <input type="text" name="username" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username" required maxlength="16">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="password">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" minlength="6" maxlength="40">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="email">
-                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="email" name="email" placeholder="E-mail" required>
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
 
