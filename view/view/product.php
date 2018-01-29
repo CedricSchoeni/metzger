@@ -47,7 +47,7 @@ if(!file_exists($target_dir.$image))
       <h3 class="head3"><span>Details</span></h3>
     </div>
       <div class="grid_12">
-      <p><?php echo$product['description']?>
+          <p class="description"><?php echo$product['description']?></p>
       </div>
   </div>
 </div>

@@ -29,8 +29,8 @@
             ?>
             <div class="grid_4">
                 <a href="<?php echo$image?>" class="gal"><img src="<?php echo$image?>" alt=""></a>
-                <div class="text1 col1"><?php echo$products[$i]['Productname']?></div>
-                <?php echo$products[$i]["Description"]?><br>
+                <div class="text1 col1 wordBreak"><?php echo$products[$i]['Productname']?></div>
+                <div class="wordBreak"><?php echo$products[$i]["Description"]?></div><br>
                 <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>
             </div>
             <?php
