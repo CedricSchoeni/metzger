@@ -47,7 +47,7 @@
           <div class="col3"><a href="#">Cedric Somali</a></div>Creator of this website.
         </div>
         <div class="grid_2">
-          <img src="http://images6.fanpop.com/image/photos/37400000/Funny-pic-of-knuckles-knuckles-the-echidna-37426614-468-500.png" alt="">
+          <img src="/NesriDiscount/assets/images/jochen-wydra-foto.jpg" alt="">
           <div class="col3"><a href="#">Campiotti</a></div>Product Owner.
         </div>
         <div class="grid_2">
