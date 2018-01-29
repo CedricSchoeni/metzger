@@ -92,14 +92,16 @@ class UserController extends BaseController implements ControllerInterface
     }
     public function logout(){
         session_destroy();
-        $this->httpHandler->redirect("user","login");
+        $this->httpHandler->redirect("user","user");
     }
     public function register(){
         $this->add();
     }
     public function user(){
         $id = $this->renderer->sessionManager->getSessionItem('User', 'id');
-        $stmnt = $this->renderer->queryBuilder->setMode(0)->setTable("dbuser")->addCond('dbuser','id','0',$id,'')->executeStatement();
+        $stmnt = $this->renderer->queryBuilder->setMode(0)->setTable("dbuser")->
+        addCond('dbuser','id','0',$id,'')->
+        executeStatement();
         $this->renderer->setAttribute('user',$stmnt);
     }
 }

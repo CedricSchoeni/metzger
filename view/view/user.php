@@ -61,10 +61,12 @@
             <?php echo $this->formHelper->endForm(); ?>
             <?php }else{?>
                 <h3><span>Profile</span></h3>
-            <button class="btn" type="submit" formaction="user/logout">Logout</button>
-            <?php var_dump($this->user);?>
 
-
+                <div class="center">
+                    <div class="buttons">
+                        <a class="btn" type="submit" href="/user/logout">Logout</a>
+                    </div>
+                </div>
             <?php }?>
         </div>
     </div>
