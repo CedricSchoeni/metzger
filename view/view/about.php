@@ -47,7 +47,7 @@
           <div class="col3"><a href="#">Cedric Somali</a></div>Creator of this website.
         </div>
         <div class="grid_2">
-          <img src="/NesriDiscount/assets/images/jochen-wydra-foto.jpg" alt="">
+          <img src="/NesriDiscount/assets/images/jochen-wydra-foto.png" alt="">
           <div class="col3"><a href="#">Campiotti</a></div>Product Owner.
         </div>
         <div class="grid_2">
