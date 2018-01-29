@@ -44,7 +44,7 @@
       <div class="team">
         <div class="grid_2">
           <img src="https://www.auto-medienportal.net/bild/load/detail/87063" alt="">
-          <div class="col3"><a href="#">Cedric Somali</a></div>Creator of this website.
+          <div class="col3"><a href="#">Cedric Somali</a></div>The whole team.
         </div>
         <div class="grid_2">
           <img src="/NesriDiscount/assets/images/jochen-wydra-foto.png" alt="">
