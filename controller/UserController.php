@@ -52,7 +52,13 @@ class UserController extends BaseController implements ControllerInterface
 
     public function edit(int $id)
     {
-        // TODO: Implement edit() method.
+        if($id!=$this->renderer->sessionManager->getSessionItem('User','id')){
+            $this->httpHandler->redirect('base','index');
+            die();
+        }
+
+        $this->httpHandler->redirect('user','user');
+
     }
 
 

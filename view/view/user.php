@@ -59,8 +59,8 @@
             <?php echo $this->formHelper->endForm(); ?>
             <?php }else{?>
                 <h3><span>Profile</span></h3>
-                <?php echo $this->formHelper->createForm("user","/user/edit","POST","Edit"); ?>
                 <?php $user = $this->user[0]?>
+                <?php echo $this->formHelper->createForm("user","/user/edit/".$user['id'],"POST","Edit"); ?>
                 <fieldset>
                     <div class="success_wrapper">
                         <div class="success">Data submitted!<br>
