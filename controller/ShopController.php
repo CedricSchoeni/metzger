@@ -41,11 +41,11 @@ class ShopController extends BaseController implements ControllerInterface
                 $product->save();
                 //$this->httpHandler->redirect("shop","products");
             }
-            if($product->isValid())
+            /*if($product->isValid())
                 echo "trulmeo";
             else
                 echo"falselmeo";
-            var_dump($data);
+            var_dump($data);*/
         }
 
 
