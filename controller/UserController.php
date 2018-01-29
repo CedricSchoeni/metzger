@@ -35,7 +35,7 @@ class UserController extends BaseController implements ControllerInterface
             if($user->isValid()){
                 //echo'xd';
                 $user->save();
-                $this->httpHandler->redirect('user','index');
+                $this->httpHandler->redirect('user','user');
             }
         }
     }
