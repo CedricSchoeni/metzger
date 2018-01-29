@@ -37,7 +37,7 @@ class fileUploader
             //$uploadOk = 1;
         }
 // Check file size
-        if ($file["size"] > 500000) {
+        if ($file["size"] > 500000*5) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }

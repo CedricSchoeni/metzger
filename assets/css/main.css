@@ -1,3 +1,4 @@
 .dontLook{visibility: hidden;}
 .title{word-wrap: break-word}
 .description{word-break: break-all}
+.wordBreak{word-break: break-all}
