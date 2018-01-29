@@ -43,20 +43,20 @@
       <h3 class="head2"><span>Meet our Work team</span></h3>
       <div class="team">
         <div class="grid_2">
-          <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
-          <div class="col3"><a href="#">Cedric Somali</a></div>The whole Team, Web-Developer.
+          <img src="https://www.auto-medienportal.net/bild/load/detail/87063" alt="">
+          <div class="col3"><a href="#">Cedric Somali</a></div>Creator of this website.
         </div>
         <div class="grid_2">
-          <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
-          <div class="col3"><a href="#">Campiotti</a></div>Product Owner, owns all of this.
+          <img src="http://images6.fanpop.com/image/photos/37400000/Funny-pic-of-knuckles-knuckles-the-echidna-37426614-468-500.png" alt="">
+          <div class="col3"><a href="#">Campiotti</a></div>Product Owner.
         </div>
         <div class="grid_2">
-          <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
+          <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/0dd/3f8/1f015e7.jpg" alt="">
           <div class="col3"><a href="#">Philip Metzgerman</a></div>Scrum Master, may not actually be master of SCRUM.
         </div>
         <div class="clear"></div>
         <div class="grid_2">
-          <img src="https://i.imgur.com/72xjDmY.jpg" alt="">
+          <img src="https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/p160x160/23722402_1802913026417503_1420565559362832366_n.jpg?oh=2214526e692cd66b695fa6c26f6a9341&oe=5B222A81" alt="">
           <div class="col3"><a href="#">Egzone Nesri</a></div>Prior Owner to NesriDiscount, now just Nesri.
         </div>
         <div class="grid_2">
