@@ -35,7 +35,7 @@ class UserController extends BaseController implements ControllerInterface
             if($user->isValid()){
                 //echo'xd';
                 $user->save();
-                $this->httpHandler->redirect('user','index');
+                $this->httpHandler->redirect('user','user');
             }
         }
     }
@@ -100,9 +100,10 @@ class UserController extends BaseController implements ControllerInterface
     public function user(){
         $this->renderer->headerIndex = 5;
         $id = $this->renderer->sessionManager->getSessionItem('User', 'id');
-        $stmnt = $this->renderer->queryBuilder->setMode(0)->setTable("dbuser")->
-        addCond('dbuser','id','0',$id,'')->
-        executeStatement();
+        $stmnt = $this->renderer->queryBuilder->setMode(0)->setTable("dbuser")
+            ->setCols('dbuser',array('id','username','email'))
+            ->addCond('dbuser','id','0',$id,'')
+            ->executeStatement();
         $this->renderer->setAttribute('user',$stmnt);
     }
 }

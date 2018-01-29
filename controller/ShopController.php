@@ -34,7 +34,7 @@ class ShopController extends BaseController implements ControllerInterface
                 $filename = $fileuploder->upload($_FILES['image']);
             }
             $product = new Product();
-            $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","ID");
+            $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","id");
             $data['image']=$filename;
             $product->patchEntity($data);
             if($product->isValid()){
