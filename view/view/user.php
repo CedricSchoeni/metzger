@@ -9,6 +9,7 @@
 <div class="content">
     <div class="container_12">
         <div class="grid_12">
+            <?php if(!isset($_SESSION['User'])){?>
             <h3><span>Login</span></h3>
             <?php echo $this->formHelper->createForm("user","/user/login","POST","Login"); ?>
             <div class="success_wrapper">
@@ -58,6 +59,13 @@
                 </div>
             </fieldset>
             <?php echo $this->formHelper->endForm(); ?>
+            <?php }else{?>
+                <h3><span>Profile</span></h3>
+            <button class="btn" type="submit" formaction="user/logout">Logout</button>
+            <?php var_dump($this->user);?>
+
+
+            <?php }?>
         </div>
     </div>
 </div>

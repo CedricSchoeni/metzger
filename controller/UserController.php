@@ -58,7 +58,7 @@ class UserController extends BaseController implements ControllerInterface
 
     public function login(){
         if($this->httpHandler->isPost() && isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] && $_POST['password']) {
-            $user = $this->renderer->queryBuilder->setMode(0)->setTable('DBUser')->addCond('DBUser', 'Username', '0', $_POST['username'],false)->setCols('DBUser', array('ID', 'Username', 'Password', 'Email', 'EndDate'))->executeStatement();
+            $user = $this->renderer->queryBuilder->setMode(0)->setTable('DBUser')->addCond('DBUser', 'Username', '0', $_POST['username'],false)->setCols('DBUser', array('id', 'Username', 'Password', 'Email', 'EndDate'))->executeStatement();
             //var_dump($user);
             if ($user && password_verify($_POST['password'], $user[0]['Password'])) {
                 $this->renderer->sessionManager->setSessionArray('User', $user[0]);
@@ -97,5 +97,9 @@ class UserController extends BaseController implements ControllerInterface
     public function register(){
         $this->add();
     }
-
+    public function user(){
+        $id = $this->renderer->sessionManager->getSessionItem('User', 'id');
+        $stmnt = $this->renderer->queryBuilder->setMode(0)->setTable("dbuser")->addCond('dbuser','id','0',$id,'')->executeStatement();
+        $this->renderer->setAttribute('user',$stmnt);
+    }
 }
