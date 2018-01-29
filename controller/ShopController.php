@@ -67,13 +67,16 @@ class ShopController extends BaseController implements ControllerInterface
     }
 
     public function sell(){
+        $this->renderer->headerIndex = 6;
         $this->add();
     }
     public function products(){
+        $this->renderer->headerIndex = 2;
         $statement=$this->renderer->queryBuilder->setMode(0)->setTable('product')->addCond('product','stock',3,'0','');
         $this->renderer->setAttribute('products',$statement->executeStatement());
     }
     public function product(int $id){
+        $this->renderer->headerIndex = 2;
         $statement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')->setCols('Product',array('id','productname','image','price','discount','stock','rating','description'))
             ->setCols('DBUser',array('username'))
             ->joinTable('DBUser','Product','0','DBUserFK')
@@ -94,7 +97,7 @@ class ShopController extends BaseController implements ControllerInterface
                 ->executeStatement();
             $this->httpHandler->redirect('shop','products');
         }
-
     }
+
 
 }

@@ -69,4 +69,16 @@ class BaseController
         $this->httpHandler->redirect('base', 'index');
     }
 
+    public function about()
+    {
+        $this->renderer->headerIndex = 1;
+    }
+
+    public function contact (){
+        $this->renderer->headerIndex = 4;
+    }
+    public function partners(){
+        $this->renderer->headerIndex = 3;
+    }
+
 }

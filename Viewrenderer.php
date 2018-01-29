@@ -29,6 +29,8 @@ class Viewrenderer
     public $sessionManager;
     private $viewVars = [];
 
+    public $headerIndex = 0;
+
 
     public function __construct($controller)
     {

@@ -98,6 +98,7 @@ class UserController extends BaseController implements ControllerInterface
         $this->add();
     }
     public function user(){
+        $this->renderer->headerIndex = 5;
         $id = $this->renderer->sessionManager->getSessionItem('User', 'id');
         $stmnt = $this->renderer->queryBuilder->setMode(0)->setTable("dbuser")->
         addCond('dbuser','id','0',$id,'')->

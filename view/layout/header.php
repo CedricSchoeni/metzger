@@ -39,14 +39,14 @@
             <div class="menu_block">
                 <nav  class="" >
                     <ul class="sf-menu">
-                        <li class="current"><a href="/base/index">Home</a></li>
-                        <li><a href="/base/about">About</a></li>
-                        <li><a href="/shop/products">Products</a></li>
-                        <li><a href="/base/partners">Our Partners</a></li>
-                        <li><a href="/base/contact">Contact Us</a></li>
-                        <li><a href="/user/user">You</a></li>
+                        <li class="<?php if ($this->headerIndex == 0) echo'current'?>"><a href="/base/index">Home</a></li>
+                        <li class="<?php if ($this->headerIndex == 1) echo'current'?>"><a href="/base/about">About</a></li>
+                        <li class="<?php if ($this->headerIndex == 2) echo'current'?>"><a href="/shop/products">Products</a></li>
+                        <li class="<?php if ($this->headerIndex == 3) echo'current'?>"><a href="/base/partners">Our Partners</a></li>
+                        <li class="<?php if ($this->headerIndex == 4) echo'current'?>"><a href="/base/contact">Contact Us</a></li>
+                        <li class="<?php if ($this->headerIndex == 5) echo'current'?>"><a href="/user/user">You</a></li>
                         <?php if(isset($_SESSION['User'])){ ?>
-                        <li><a href="/shop/sell">Sell</a></li>
+                        <li class="<?php if ($this->headerIndex == 6) echo'current'?>"><a href="/shop/sell">Sell</a></li>
                         <?php }?>
                     </ul>
                 </nav>
