@@ -105,3 +105,7 @@ function getLikes(str){
     xmlhttp.open("GET","/BonziBlog/getLikes?blog="+str,true);
     xmlhttp.send();
 }
+
+function addTag(){
+
+}
