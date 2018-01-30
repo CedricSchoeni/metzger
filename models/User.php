@@ -34,7 +34,18 @@ class User extends Entity
 
     public function save()
     {
-        $this->queryBuilder->setMode(2)->setColsWithValues('DBUser', array('id', 'email', 'username', 'password', 'enddate'), array('', $this->email, $this->username, crypt($this->password,self::getSalt()), date("Y-m-d H:i:s")))->executeStatement();
+
+
+            $this->queryBuilder->setMode(2)
+                ->setColsWithValues('DBUser', array('id', 'email', 'username', 'password', 'enddate'),
+                    array('', $this->email, $this->username, crypt($this->password,self::getSalt()), date("Y-m-d H:i:s")))
+                ->executeStatement();
+
+
+    }
+
+    public function edit(int $id){
+
     }
 
 

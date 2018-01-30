@@ -106,6 +106,12 @@ function getLikes(str){
     xmlhttp.send();
 }
 
-function addTag(){
+function customMessage(title, content, good){
 
+    document.getElementById("alertContainer").style.visibility="visible";
+    document.getElementById("alertBoxTitle").innerHTML=title;
+    document.getElementById("alertBoxContent").innerHTML=content;
+    if(good===false){
+        document.getElementById("alertBoxTitle").style.color="red";
+    }
 }

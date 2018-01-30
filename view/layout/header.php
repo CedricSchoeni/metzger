@@ -24,6 +24,7 @@
     <script src="/NesriDiscount/assets/js/jquery.easing.1.3.js"></script>
     <script src="/NesriDiscount/assets/js/camera.js"></script>
     <script src="/NesriDiscount/assets/js/forms.js"></script>
+    <script src="/NesriDiscount/assets/javascript/main.js"></script>
     <!-- Products Page -->
     <link rel="stylesheet" href="/NesriDiscount/assets/css/touchTouch.css">
     <script src="/NesriDiscount/assets/js/touchTouch.jquery.js"></script>
@@ -31,6 +32,13 @@
 
 </head>
 <body  class="">
+<div id="alertContainer" style="visibility: hidden">
+    <div class="customMessageBackground" id="alertBackground"></div>
+    <div class="customMessageBox" id="alertBox">
+        <div id="alertBoxTitle" class="customMessageTitle"></div>
+        <div id="alertBoxContent" class="customMessageContent"></div>
+    </div>
+</div>
 <!--==============================header=================================-->
 <header>
     <div class="container_12">

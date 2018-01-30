@@ -27,9 +27,25 @@ class UserController extends BaseController implements ControllerInterface
 
     public function add()
     {
+        $data = $this->httpHandler->getData();
+        $statement=$this->renderer->queryBuilder->setMode(0)
+            ->setTable('dbuser')
+            ->setCols('dbuser',array('username','email'))
+            ->executeStatement();
+        $valid=true;
 
-        if($this->httpHandler->isPost()){
-            $data = $this->httpHandler->getData();
+        foreach($statement as $tmp)
+            if($tmp['username']==$data['username'] || $tmp['email']==$data['email']){
+                $valid=false;
+            }
+        if($valid==false){
+                $this->renderer->sessionManager->setSessionArray('alert',array('alert'=>0));
+                $this->renderer->sessionManager->setSessionItem('alert','alert',"<script>customMessage('username or email invalid!','one or both of them is already registered!',false);</script>");
+
+                $this->httpHandler->redirect('user','user');
+            }
+
+        if($this->httpHandler->isPost() && $valid==true){
             $user = new User();
             $user->patchEntity($data);
             if($user->isValid()){
