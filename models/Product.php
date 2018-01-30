@@ -40,7 +40,7 @@ class Product extends Entity
 
     public function save()
     {
-        $this->queryBuilder->setMode(2)->setColsWithValues("product",array('id','dbuserfk','Productname','Image','Stock','Price','Description'),array('',$this->userfk,$this->productname,$this->image,$this->stock,$this->price,$this->description))->executeStatement();
+        return$this->queryBuilder->setMode(2)->setColsWithValues("product",array('id','dbuserfk','Productname','Image','Stock','Price','Description'),array('',$this->userfk,$this->productname,$this->image,$this->stock,$this->price,$this->description))->executeStatement();
     }
 
     /**

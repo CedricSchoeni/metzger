@@ -35,10 +35,10 @@ class ShopController extends BaseController implements ControllerInterface
             }
             $product = new Product();
             $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","id");
-            $data['image']=$filename;
+            $data['imagxDe']=$filename;
             $product->patchEntity($data);
             if($product->isValid()){
-                $product->save();
+                $newProductId = $product->save();
                 //$this->httpHandler->redirect("shop","products");
             }
             /*if($product->isValid())

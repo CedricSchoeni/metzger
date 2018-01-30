@@ -33,7 +33,6 @@ class UserController extends BaseController implements ControllerInterface
             $user = new User();
             $user->patchEntity($data);
             if($user->isValid()){
-                //echo'xd';
                 $user->save();
                 $this->httpHandler->redirect('user','user');
             }
