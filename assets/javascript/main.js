@@ -105,3 +105,13 @@ function getLikes(str){
     xmlhttp.open("GET","/BonziBlog/getLikes?blog="+str,true);
     xmlhttp.send();
 }
+
+function customMessage(title, content, good){
+
+    document.getElementById("alertBox").style.visibility="visible";
+    document.getElementById("alertBoxTitle").innerHTML=title;
+    document.getElementById("alertBoxContent").innerHTML=content;
+    if(good===false){
+        document.getElementById("alertBoxTitle").style.color="red";
+    }
+}

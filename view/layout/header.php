@@ -31,6 +31,13 @@
 
 </head>
 <body  class="">
+<div id="alertContainer" style="visibility: hidden">
+    <div class="customMessageBackground" id="alertBackground"></div>
+    <div class="customMessageBox" id="alertBox">
+        <div id="alertBoxTitle" class="customMessageTitle"></div>
+        <div id="alertBoxContent" class="customMessageContent"></div>
+    </div>
+</div>
 <!--==============================header=================================-->
 <header>
     <div class="container_12">
