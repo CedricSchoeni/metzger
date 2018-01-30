@@ -69,7 +69,7 @@ class ShopController extends BaseController implements ControllerInterface
                         break;
                     }
                 }
-                //$this->httpHandler->redirect("shop","products");
+                $this->httpHandler->redirect("shop","products");
             }
             /*if($product->isValid())
                 echo "trulmeo";
