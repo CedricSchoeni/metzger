@@ -38,7 +38,7 @@ class ShopController extends BaseController implements ControllerInterface
             $data['image']=$filename;
             $product->patchEntity($data);
             if($product->isValid()){
-                $product->save();
+                $newProductId = $product->save();
                 //$this->httpHandler->redirect("shop","products");
             }
             /*if($product->isValid())
