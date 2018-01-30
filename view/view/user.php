@@ -6,6 +6,9 @@
  * Time: 09:57
  */
 ?>
+<?php $datBoi=$this;
+echo$datBoi->sessionManager->getSessionItem('alert','alert');
+ ?>
 <div class="content">
     <div class="container_12">
         <div class="grid_12">

@@ -29,8 +29,8 @@ class UserController extends BaseController implements ControllerInterface
     {
         $data = $this->httpHandler->getData();
         $statement=$this->renderer->queryBuilder->setMode(0)
-            ->setTable('product')
-            ->setCols('product',array('username','email'))
+            ->setTable('dbuser')
+            ->setCols('dbuser',array('username','email'))
             ->executeStatement();
         $valid=true;
 
@@ -39,7 +39,10 @@ class UserController extends BaseController implements ControllerInterface
                 $valid=false;
             }
         if($valid==false){
-            echo"<script>customMessage('username or email invalid!','one or both of them is already registered!',false);</script>";
+                $this->renderer->sessionManager->setSessionArray('alert',array('alert'=>0));
+                $this->renderer->sessionManager->setSessionItem('alert','alert',"<script>customMessage('username or email invalid!','one or both of them is already registered!',false);</script>");
+
+                $this->httpHandler->redirect('user','user');
             }
 
         if($this->httpHandler->isPost() && $valid==true){

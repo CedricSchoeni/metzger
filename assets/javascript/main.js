@@ -108,7 +108,7 @@ function getLikes(str){
 
 function customMessage(title, content, good){
 
-    document.getElementById("alertBox").style.visibility="visible";
+    document.getElementById("alertContainer").style.visibility="visible";
     document.getElementById("alertBoxTitle").innerHTML=title;
     document.getElementById("alertBoxContent").innerHTML=content;
     if(good===false){
