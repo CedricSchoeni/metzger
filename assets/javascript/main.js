@@ -118,4 +118,5 @@ function customMessage(title, content, good){
 
 function addTag(){
     alert('mesger');
+    // nice push
 }
