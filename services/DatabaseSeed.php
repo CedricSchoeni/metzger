@@ -66,6 +66,9 @@ class DatabaseSeed
         $this->dbConnection = null;
         $this->dbConnection = DBConnection::getDbConnection();
 
+        //Generate Base Data (Admin/Webhost User, Base Products)
+        //TODO code
+
 
         // Creation of new Roles in DB
         /*
