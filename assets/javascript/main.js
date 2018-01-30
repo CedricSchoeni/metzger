@@ -106,8 +106,39 @@ function getLikes(str){
     xmlhttp.send();
 }
 
+/**
+ * Professional HD if empty checker that works B
+ * @param data to check if it is empty or not
+ * @returns {boolean} true or false depending on if it is empty, or not.
+ */
+function empty(data)
+{
+    if(typeof(data) === 'number' || typeof(data) === 'boolean')
+    {
+        return false;
+    }
+    if(typeof(data) === 'undefined' || data === null)
+    {
+        return true;
+    }
+    if(typeof(data.length) !== 'undefined')
+    {
+        return data.length === 0;
+    }
+    var count = 0;
+    for(var i in data)
+    {
+        if(data.hasOwnProperty(i))
+        {
+            count ++;
+        }
+    }
+    return count === 0;
+}
 function customMessage(title, content, good){
-
+    if(empty(title) || empty(content)){
+        return false;
+    }
     document.getElementById("alertContainer").style.visibility="visible";
     document.getElementById("alertBoxTitle").innerHTML=title;
     document.getElementById("alertBoxContent").innerHTML=content;

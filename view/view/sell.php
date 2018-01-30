@@ -44,7 +44,6 @@
                         <input type="text" name="tag1" placeholder="Tag" required>
                         <br class="clear">
                         <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
-                    </label>
                 </div>
 
                 <div class="btns">
