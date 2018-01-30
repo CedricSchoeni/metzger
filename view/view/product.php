@@ -27,7 +27,7 @@ if(!file_exists($target_dir.$image))
           <li>Price: <?php echo$product['price']?></li>
           <li>Stock: <?php echo$product['stock']?></li>
           <li>
-              <div class="text1">Tags</div>
+              <div class="sectionTitle">Tags</div>
               <?php foreach($tags as $tag){?>
               <div class="tag"><?php echo$tag['tagname'];?></div>
               <?php }?>

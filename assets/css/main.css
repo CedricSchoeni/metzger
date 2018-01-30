@@ -7,3 +7,8 @@
 .customMessageTitle{}
 .customMessageContent{}
 .customMessageBackground{width:100%; height: 100%; z-index: 888; opacity: 0.5; background-color: #414141;}
+
+.tag {display:inline-block;padding:5px;background-color:#009fb3;color:white;border-radius:5px;margin:5px;}
+.sectionTitle {font-weight:bold;font-size:17px;margin-bottom:10px;}
+
+
