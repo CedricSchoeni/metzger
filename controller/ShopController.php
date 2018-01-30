@@ -11,6 +11,7 @@ namespace controller;
 
 use models\Product;
 use helper\fileUploader;
+use models\product_tag;
 use models\Tag;
 
 class ShopController extends BaseController implements ControllerInterface
@@ -39,7 +40,7 @@ class ShopController extends BaseController implements ControllerInterface
             $data['image']=$filename;
             $product->patchEntity($data);
             if($product->isValid()){
-                //$newProductId = $product->save();
+                $newProductId = $product->save();
                 for($i = 1; $i <= 5; $i++){
                     $key = 'tag'.$i;
                     if (isset($data[$key])){
@@ -58,14 +59,16 @@ class ShopController extends BaseController implements ControllerInterface
                             }
                         }
                         if ($tagId > 0){
-
+                            $product_tag = new product_tag();
+                            $product_tag->patchEntity(array('tagid' => $tagId, 'productid' => $newProductId));
+                            if ($product_tag->isValid()){
+                                $product_tag->save();
+                            }
                         }
                     } else {
                         break;
                     }
                 }
-                // create tags if not exist
-
                 //$this->httpHandler->redirect("shop","products");
             }
             /*if($product->isValid())

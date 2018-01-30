@@ -31,7 +31,7 @@ class product_tag extends Entity
 
     public function save()
     {
-        return$this->queryBuilder->setMode(2)->setColsWithValues("product_tags" ,array('id','tagsfk', 'productfk'),array('',$this->tagid), $this->productid)->executeStatement();
+        return$this->queryBuilder->setMode(2)->setColsWithValues("product_tag" ,array('id','tagsfk', 'productfk'),array('',$this->tagid, $this->productid))->executeStatement();
     }
 
 }
