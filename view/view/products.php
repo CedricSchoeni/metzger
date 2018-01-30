@@ -10,11 +10,20 @@
 
 <div class="content">
   <div class="container_12">
+      <div class="grid_12">
+          <h3><span>Filter</span></h3>
+          <?php
+          echo$this->formHelper->createForm('filter', "", "");
+          echo'<input id="searchInput" type="text" value="" placeholder="Filter results ..." onkeyup="filterResults(this.value);">';
+          echo$this->formHelper->endForm();
+          ?>
+      </div>
+      <div class="clear"></div>
     <div class="grid_12">
       <h3><span>Our Products</span></h3>
     </div>
     <div class="clear"></div>
-    <div class="port">
+    <div class="port" id="productContainer">
         <?php
 
         $products=$this->products;

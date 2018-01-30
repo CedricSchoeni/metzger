@@ -167,3 +167,27 @@ function addTag(){
     }
 
 }
+
+function filterResults(str){
+    var xhttp;
+    var productContainer = document.getElementById('productContainer');
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var content = "";
+            JSON.parse(this.responseText).forEach(function(element) {
+                var image = (element[2] != "") ? '/NesriDiscount/assets/images/products/'+element[2] : "https://i.imgur.com/72xjDmY.jpg";
+                content += '<div class="grid_4">' +
+                    '<a href="'+image+'" class="gal"><img src="'+image+'" alt=""></a>' +
+                    '<div class="text1 col1 wordBreak">'+element[1]+'</div>' +
+                    '<div class="wordBreak">'+element[3]+'</div><br>' +
+                    '<a href="/shop/product/'+element[0]+'">Go to Product Details</a>' +
+                    '</div>';
+            });
+            productContainer.innerHTML = content;
+        }
+    };
+    xhttp.open("GET", "/base/filter/"+str, true);
+    xhttp.send();
+
+}

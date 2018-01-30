@@ -81,4 +81,20 @@ class BaseController
         $this->renderer->headerIndex = 3;
     }
 
+    public function filter($val){
+        $this::$dontRender = true;
+        $val = '%'.$val.'%';
+        $res = $this->renderer->queryBuilder->setMode(0)->setTable('product')
+            ->setCols('product', array('id', 'productname', 'image', 'description'))
+            ->joinTable('product_tag', 'product', 0, 'productfk', true)
+            ->joinTable('tags', 'product_tag', 0, 'tagsfk')
+            ->addCond('tags', 'tagname', 6, $val, false)
+            ->groupBy(array('product_tag.productfk'))
+            ->orderBy(array('product.id'))
+            ->executeStatement();
+
+        echo json_encode($res);
+        die();
+    }
+
 }

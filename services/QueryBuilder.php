@@ -166,6 +166,20 @@ class QueryBuilder
     }
 
     /**
+     * here the result can be grouped by cols
+     * this method needs to which table the column goes
+     * to use it orderBy(array('table.column', ...));
+     * @param array $cols
+     * @return $this
+     */
+    public function groupBy(array $cols){
+        foreach($cols as $col){
+            $this->statement['Group'][] = $col;
+        }
+        return$this;
+    }
+
+    /**
      * this method creates a select statement
      * @return string
      */
@@ -223,6 +237,15 @@ class QueryBuilder
             }
             $statement .= $string;
         }
+
+        if (isset($this->statement['Group'])){
+            $string = "";
+            foreach($this->statement['Group'] as $order){
+                $string .= $order.",";
+            }
+            $statement .= " group by ".substr($string, 0, -1);
+        }
+
         if (isset($this->statement['Order'])){
             $string = "";
             foreach($this->statement['Order'] as $order){

@@ -2,8 +2,7 @@
 <?php
 
 $product = $this->product[0];
-$tags = $this->tag;
-
+$tags = ($this->tag[0]['tagname'] != null) ? $this->tag : null;
 $image="https://i.imgur.com/72xjDmY.jpg";
 $path="/NesriDiscount/assets/images/products/";
 if($product['discount']!=null)
@@ -28,9 +27,9 @@ if(!file_exists($target_dir.$image))
           <li>Stock: <?php echo$product['stock']?></li>
           <li>
               <div class="sectionTitle">Tags</div>
-              <?php foreach($tags as $tag){?>
+              <?php if($tags){foreach($tags as $tag){?>
               <div class="tag"><?php echo$tag['tagname'];?></div>
-              <?php }?>
+              <?php }}?>
 
           </li>
           <?php if($product['rating']==null){?>
@@ -39,6 +38,7 @@ if(!file_exists($target_dir.$image))
           <li>Rating: <?php echo$product['rating']?>/5</li>
           <?php }?>
           <li>
+
               <?php echo $this->formHelper->createForm("user","/shop/buy/$product[id]","POST","Buy"); ?>
               <input type="number" name="amount" value="1" min="1" max="<?php echo$product['stock']?>">
               <input type="hidden" name="id" value="<?php echo$product['id']?>">
