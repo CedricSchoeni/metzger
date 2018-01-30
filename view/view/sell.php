@@ -47,7 +47,7 @@
                 </div>
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->
-                    <button id="addTag"class="btn" onclick="addTag()">Add Tag</button>
+                    <button onclick="addTag();return false;" id="addTag2" class="btn" >Add Tag</button>
                 </div>
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->

@@ -115,3 +115,7 @@ function customMessage(title, content, good){
         document.getElementById("alertBoxTitle").style.color="red";
     }
 }
+
+function addTag(){
+    alert('mesger');
+}
