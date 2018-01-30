@@ -116,7 +116,19 @@ function customMessage(title, content, good){
     }
 }
 
+
+
 function addTag(){
-    alert('mesger');
-    // nice push
+    var tagMax = 5;
+    var button = document.getElementById('addTags');
+    var tagContainer = document.getElementById('tags');
+    var elemCount = tagContainer.children.length;
+    var name = 'tag' + (elemCount + 1);
+    if (elemCount + 1 < tagMax){
+        tagContainer.innerHTML += '<label class="'+name+'"><input type="text" name="'+name+'" placeholder="Tag" required><br class="clear"><span class="error error-empty">*This is not a valid tag.</span></label></label>';
+    } else if (tagMax - 1 == elemCount) {
+        tagContainer.innerHTML += '<label class="'+name+'"><input type="text" name="'+name+'" placeholder="Tag" required><br class="clear"><span class="error error-empty">*This is not a valid tag.</span></label></label>';
+        button.style.display = 'none';
+    }
+
 }

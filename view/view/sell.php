@@ -38,16 +38,18 @@
                     <input type="number" name="price" placeholder="Price" required>
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+
                 <div id="tags">
-                    <label class="Tag1">
+                    <label class="tag1">
                         <input type="text" name="tag1" placeholder="Tag" required>
                         <br class="clear">
                         <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                     </label>
                 </div>
+
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->
-                    <button onclick="addTag();return false;" id="addTag2" class="btn" >Add Tag</button>
+                    <button style="" onclick="addTag();return false;" id="addTags" class="btn" >Add Tag</button>
                 </div>
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->
