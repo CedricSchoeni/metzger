@@ -107,12 +107,19 @@ class ShopController extends BaseController implements ControllerInterface
     }
     public function product(int $id){
         $this->renderer->headerIndex = 2;
-        $statement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')->setCols('Product',array('id','productname','image','price','discount','stock','rating','description'))
+        $productStatement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')->setCols('Product',array('id','productname','image','price','discount','stock','rating','description'))
             ->setCols('DBUser',array('username'))
             ->joinTable('DBUser','Product','0','DBUserFK')
-            ->addCond('product','id',0,$id,'');
+            ->addCond('product','id',0,$id,'')->executeStatement();
 
-        $this->renderer->setAttribute('product',$statement->executeStatement());
+        $tagStatement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')
+            ->setCols('tags', array('id', 'tagname'))
+            ->joinTable('product_tag', 'product', '0', 'productfk', true)
+            ->joinTable('tags', 'product_tag', '0', 'tagsfk')
+            ->addCond('product','id',0,$id,'')->executeStatement();
+
+        $this->renderer->setAttribute('product',$productStatement);
+        $this->renderer->setAttribute('tag', $tagStatement);
     }
     public function buy(int $id){
         if($this->httpHandler->isPost()){
