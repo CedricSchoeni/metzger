@@ -35,7 +35,7 @@ class ShopController extends BaseController implements ControllerInterface
             }
             $product = new Product();
             $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","id");
-            $data['imagxDe']=$filename;
+            $data['image']=$filename;
             $product->patchEntity($data);
             if($product->isValid()){
                 $newProductId = $product->save();

@@ -40,6 +40,18 @@
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Tag1">
                     <input type="text" name="tag1" placeholder="Price" required>
+                    <br class="clear">
+                    <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+                </label>
+                <label class="Tag2">
+                    <input type="text" name="tag2" placeholder="Price" required>
+                    <br class="clear">
+                    <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+                </label>
+                <label class="Tag3">
+                    <input type="text" name="tag3" placeholder="Price" required>
+                    <br class="clear">
+                    <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 </label>
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->
