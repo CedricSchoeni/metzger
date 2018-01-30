@@ -11,6 +11,8 @@ namespace controller;
 
 use models\Product;
 use helper\fileUploader;
+use models\product_tag;
+use models\Tag;
 
 class ShopController extends BaseController implements ControllerInterface
 {
@@ -26,7 +28,7 @@ class ShopController extends BaseController implements ControllerInterface
             $this->httpHandler->redirect("base","index");
         }
 
-        if($this->httpHandler->isPost()) {
+        if($this->httpHandler->isPost() && isset($_POST['tag1']) && $_POST['tag1'] != "") {
             $data = $this->httpHandler->getData();
             $filename=null;
             if(count($_FILES)>0){
@@ -39,6 +41,34 @@ class ShopController extends BaseController implements ControllerInterface
             $product->patchEntity($data);
             if($product->isValid()){
                 $newProductId = $product->save();
+                for($i = 1; $i <= 5; $i++){
+                    $key = 'tag'.$i;
+                    if (isset($data[$key])){
+                        $tagId = $this->renderer->queryBuilder->setMode(0)->setTable('tags')->addCond('tags', 'tagname', 0, $data[$key], false)->executeStatement();
+                        if ($tagId){
+                            // tag already exists;
+                            $tagId = $tagId[0]['ID'];
+                        } else {
+                            // create new tag
+                            $tag = new Tag();
+                            $tag->patchEntity(array('tagname' => $data[$key]));
+                            if ($tag->isValid()){
+                                $tagId = $tag->save();
+                            } else {
+                                $tagId = -1;
+                            }
+                        }
+                        if ($tagId > 0){
+                            $product_tag = new product_tag();
+                            $product_tag->patchEntity(array('tagid' => $tagId, 'productid' => $newProductId));
+                            if ($product_tag->isValid()){
+                                $product_tag->save();
+                            }
+                        }
+                    } else {
+                        break;
+                    }
+                }
                 $this->httpHandler->redirect("shop","products");
             }
             /*if($product->isValid())
@@ -77,12 +107,19 @@ class ShopController extends BaseController implements ControllerInterface
     }
     public function product(int $id){
         $this->renderer->headerIndex = 2;
-        $statement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')->setCols('Product',array('id','productname','image','price','discount','stock','rating','description'))
+        $productStatement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')->setCols('Product',array('id','productname','image','price','discount','stock','rating','description'))
             ->setCols('DBUser',array('username'))
             ->joinTable('DBUser','Product','0','DBUserFK')
-            ->addCond('product','id',0,$id,'');
+            ->addCond('product','id',0,$id,'')->executeStatement();
 
-        $this->renderer->setAttribute('product',$statement->executeStatement());
+        $tagStatement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')
+            ->setCols('tags', array('id', 'tagname'))
+            ->joinTable('product_tag', 'product', '0', 'productfk', true)
+            ->joinTable('tags', 'product_tag', '0', 'tagsfk')
+            ->addCond('product','id',0,$id,'')->executeStatement();
+
+        $this->renderer->setAttribute('product',$productStatement);
+        $this->renderer->setAttribute('tag', $tagStatement);
     }
     public function buy(int $id){
         if($this->httpHandler->isPost()){

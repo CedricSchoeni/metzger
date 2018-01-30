@@ -1,6 +1,8 @@
 <!--==============================Content=================================-->
 <?php
+
 $product = $this->product[0];
+$tags = $this->tag;
 
 $image="https://i.imgur.com/72xjDmY.jpg";
 $path="/NesriDiscount/assets/images/products/";
@@ -24,6 +26,13 @@ if(!file_exists($target_dir.$image))
           <li>Product Owner: <?php echo$product['username']?></li>
           <li>Price: <?php echo$product['price']?></li>
           <li>Stock: <?php echo$product['stock']?></li>
+          <li>
+              <div class="text1">Tags</div>
+              <?php foreach($tags as $tag){?>
+              <div class="tag"><?php echo$tag['tagname'];?></div>
+              <?php }?>
+
+          </li>
           <?php if($product['rating']==null){?>
           <li>Rating: not yet rated</li>
           <?php }else {?>
