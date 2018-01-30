@@ -11,6 +11,7 @@ namespace controller;
 
 use models\Product;
 use helper\fileUploader;
+use models\Tag;
 
 class ShopController extends BaseController implements ControllerInterface
 {
@@ -26,7 +27,7 @@ class ShopController extends BaseController implements ControllerInterface
             $this->httpHandler->redirect("base","index");
         }
 
-        if($this->httpHandler->isPost()) {
+        if($this->httpHandler->isPost() && isset($_POST['tag1']) && $_POST['tag1'] != "") {
             $data = $this->httpHandler->getData();
             $filename=null;
             if(count($_FILES)>0){
@@ -38,8 +39,34 @@ class ShopController extends BaseController implements ControllerInterface
             $data['image']=$filename;
             $product->patchEntity($data);
             if($product->isValid()){
-                $newProductId = $product->save();
-                $this->httpHandler->redirect("shop","products");
+                //$newProductId = $product->save();
+                for($i = 1; $i <= 5; $i++){
+                    $key = 'tag'.$i;
+                    if (isset($data[$key])){
+                        $tagId = $this->renderer->queryBuilder->setMode(0)->setTable('tags')->addCond('tags', 'tagname', 0, $data[$key], false)->executeStatement();
+                        if ($tagId){
+                            // tag already exists;
+                            $tagId = $tagId[0]['ID'];
+                        } else {
+                            // create new tag
+                            $tag = new Tag();
+                            $tag->patchEntity(array('tagname' => $data[$key]));
+                            if ($tag->isValid()){
+                                $tagId = $tag->save();
+                            } else {
+                                $tagId = -1;
+                            }
+                        }
+                        if ($tagId > 0){
+
+                        }
+                    } else {
+                        break;
+                    }
+                }
+                // create tags if not exist
+
+                //$this->httpHandler->redirect("shop","products");
             }
             /*if($product->isValid())
                 echo "trulmeo";

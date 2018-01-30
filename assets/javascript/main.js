@@ -124,10 +124,13 @@ function addTag(){
     var tagContainer = document.getElementById('tags');
     var elemCount = tagContainer.children.length;
     var name = 'tag' + (elemCount + 1);
+    var newElem = document.createElement('label');
+    newElem.classList.add(name);
+    newElem.innerHTML = '<input type="text" name="'+name+'" placeholder="Tag" required><br class="clear"><span class="error error-empty">*This is not a valid tag.</span>';
     if (elemCount + 1 < tagMax){
-        tagContainer.innerHTML += '<label class="'+name+'"><input type="text" name="'+name+'" placeholder="Tag" required><br class="clear"><span class="error error-empty">*This is not a valid tag.</span></label></label>';
+        tagContainer.appendChild(newElem);
     } else if (tagMax - 1 == elemCount) {
-        tagContainer.innerHTML += '<label class="'+name+'"><input type="text" name="'+name+'" placeholder="Tag" required><br class="clear"><span class="error error-empty">*This is not a valid tag.</span></label></label>';
+        tagContainer.appendChild(newElem);
         button.style.display = 'none';
     }
 

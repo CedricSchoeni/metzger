@@ -43,7 +43,7 @@
                     <label class="tag1">
                         <input type="text" name="tag1" placeholder="Tag" required>
                         <br class="clear">
-                        <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+                        <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span>
                     </label>
                 </div>
 
