@@ -114,4 +114,5 @@ function customMessage(title, content, good){
     if(good===false){
         document.getElementById("alertBoxTitle").style.color="red";
     }
+    document.getElementsByTagName("body")[0].style.overflow="hidden";
 }

@@ -40,7 +40,7 @@ class UserController extends BaseController implements ControllerInterface
             }
         if($valid==false){
                 $this->renderer->sessionManager->setSessionArray('alert',array('alert'=>0));
-                $this->renderer->sessionManager->setSessionItem('alert','alert',"<script>customMessage('username or email invalid!','one or both of them is already registered!',false);</script>");
+                $this->renderer->sessionManager->setSessionItem('alert','alert',"<script>customMessage('Username or Email invalid!','One or both of them is already registered! change it or i will ban you from my site you trash idiot ',false);</script>");
 
                 $this->httpHandler->redirect('user','user');
             }

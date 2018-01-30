@@ -31,12 +31,13 @@
     <!--\Products Page/-->
 
 </head>
-<body  class="">
-<div id="alertContainer" style="visibility: hidden">
+<body  style="" class="">
+<div id="alertContainer" class="customMessageContainer" style="visibility: hidden">
     <div class="customMessageBackground" id="alertBackground"></div>
     <div class="customMessageBox" id="alertBox">
         <div id="alertBoxTitle" class="customMessageTitle"></div>
         <div id="alertBoxContent" class="customMessageContent"></div>
+        <a class="customMessageClose" id="alertBoxClose" onclick=""></a>
     </div>
 </div>
 <!--==============================header=================================-->
