@@ -45,7 +45,6 @@
                         <br class="clear">
                         <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 </div>
-
                 <div class="btns">
                     <!--<button type="reset" class="btn">Clear</button>-->
                     <button style="" onclick="addTag();return false;" id="addTags" class="btn" >Add Tag</button>
