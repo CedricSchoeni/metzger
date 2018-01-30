@@ -3,12 +3,8 @@
 .description{word-break: break-all}
 .wordBreak{word-break: break-all}
 
-.customMessageBox{position: absolute; overflow: hidden; margin-left: 50%; background-color: white; z-index: 999;}
+.customMessageContainer{position: fixed;  height: 100vh; width: 100%; z-index: 12345;}
+.customMessageBox{background-color: dimgray; right:0; bottom: 0; z-index: 999; position: absolute; color: white;}
 .customMessageTitle{}
 .customMessageContent{}
-.customMessageBackground{width:100%; height: 100%; z-index: 888; opacity: 0.5; background-color: #414141;}
-
-.tag {display:inline-block;padding:5px;background-color:#009fb3;color:white;border-radius:5px;margin:5px;}
-.sectionTitle {font-weight:bold;font-size:17px;margin-bottom:10px;}
-
-
+.customMessageBackground{width:100%; height: 100%; z-index: 888; background-color: #414141; opacity: 0.75}

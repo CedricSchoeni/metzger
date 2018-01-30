@@ -7,8 +7,10 @@
  */
 ?>
 <?php $datBoi=$this;
-echo$datBoi->sessionManager->getSessionItem('alert','alert');
+if($datBoi->sessionManager->isSet('alert')==true){
  ?>
+<script>customMessage("<?php echo$datBoi->sessionManager->getSessionItem('alert','title')?>","<?php echo$datBoi->sessionManager->getSessionItem('alert','content')?>",<?php echo$datBoi->sessionManager->getSessionItem('alert','good')?>)</script>
+<?php }?>
 <div class="content">
     <div class="container_12">
         <div class="grid_12">
