@@ -81,17 +81,37 @@ class BaseController
         $this->renderer->headerIndex = 3;
     }
 
-    public function filter($val){
+    public function filter($mode, $val){
         $this::$dontRender = true;
         $val = '%'.$val.'%';
-        $res = $this->renderer->queryBuilder->setMode(0)->setTable('product')
-            ->setCols('product', array('id', 'productname', 'image', 'description'))
-            ->joinTable('product_tag', 'product', 0, 'productfk', true)
-            ->joinTable('tags', 'product_tag', 0, 'tagsfk')
-            ->addCond('tags', 'tagname', 6, $val, false)
-            ->groupBy(array('product_tag.productfk'))
-            ->orderBy(array('product.id'))
-            ->executeStatement();
+        switch($mode){
+            case 1:
+                $res = $this->renderer->queryBuilder->setMode(0)->setTable('product')
+                    ->setCols('product', array('id', 'productname', 'image', 'description'))
+                    ->joinTable('product_tag', 'product', 0, 'productfk', true)
+                    ->joinTable('tags', 'product_tag', 0, 'tagsfk')
+                    ->addCond('tags', 'tagname', 6, $val, false)
+                    ->groupBy(array('product_tag.productfk'))
+                    ->orderBy(array('product.id'))
+                    ->executeStatement();
+                break;
+            case 2:
+                $res = $this->renderer->queryBuilder->setMode(0)->setTable('product')
+                    ->setCols('product', array('id', 'productname', 'image', 'description'))
+                    ->joinTable('dbuser', 'product', 0, 'dbuserfk')
+                    ->addCond('dbuser', 'username', 6, $val, false)
+                    ->executeStatement();
+                break;
+            case 3:
+                $res = $this->renderer->queryBuilder->setMode(0)->setTable('product')
+                    ->setCols('product', array('id', 'productname', 'image', 'description'))
+                    ->addCond('product', 'productname', 6, $val, false)
+                    ->executeStatement();
+                break;
+            default:
+                $res = $this->renderer->queryBuilder->setMode(0)->setTable('product')->setCols('product', array('id', 'productname', 'image', 'description'))->executeStatement();
+                break;
+        }
 
         echo json_encode($res);
         die();
