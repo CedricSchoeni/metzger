@@ -9,6 +9,8 @@
 namespace controller;
 
 
+use function Sodium\randombytes_random16;
+
 class CartController extends BaseController
 {
     function cart(){
@@ -19,6 +21,7 @@ class CartController extends BaseController
                 ->setCols('cart', array('id', 'amount'))
                 ->joinTable('cart', 'dbuser', '0', 'userfk', true)
                 ->joinTable('product', 'cart', '0', 'productfk')
+                ->addCond('cart','userfk',0,$this->renderer->sessionManager->getSessionItem('User','id'),false)
                 ->executeStatement();
             $this->renderer->setAttribute('cart', $statement);
         } else {
@@ -83,5 +86,36 @@ class CartController extends BaseController
                 $this->httpHandler->redirect('shop', 'products');
             }
         }
+    }
+
+    public function buyCart(){
+        if(!$this->renderer->sessionManager->isSet('User')){
+            $this->httpHandler->redirect('base','index');
+            die("not logged in!");
+        }
+        $statement=$this->renderer->queryBuilder->setMode(0)
+            ->setTable('cart')
+            ->joinTable('product','cart',0,'productfk')
+            ->setCols('product',array('stock','id'))
+            ->setCols('cart',array('amount','id cartID'))
+            ->orderBy(array('cart.id'))
+            ->addCond('cart','userfk',0,$this->renderer->sessionManager->getSessionItem('User','id'),false)
+            ->executeStatement();
+        foreach($statement as $item){
+            if($item['amount']<=$item['stock']){
+                $this->changeStock($item['id'],$item['stock']-$item['amount']);
+                $this->remove($item['cartID']);
+            }
+        }
+
+    }
+    private function changeStock($productID,$amount){
+        if($amount<0)
+            return;
+        $this->renderer->queryBuilder->setMode(1)
+            ->setTable('product')
+            ->setColsWithValues('product',array('stock'),array($amount))
+            ->addCond('product','id',0,$productID,false)
+            ->executeStatement();
     }
 }

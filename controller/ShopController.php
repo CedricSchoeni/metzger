@@ -13,6 +13,7 @@ use models\Product;
 use helper\fileUploader;
 use models\product_tag;
 use models\Tag;
+use controller\CartController;
 
 class ShopController extends BaseController implements ControllerInterface
 {
@@ -135,21 +136,6 @@ class ShopController extends BaseController implements ControllerInterface
                 ->executeStatement();
             $this->httpHandler->redirect('shop','products');
         }
-    }
-
-    public function buyCart(){
-        if(!$this->renderer->sessionManager->isSet('User')){
-            $this->httpHandler->redirect('base','index');
-            die("not logged in!");
-        }
-        $statement=$this->renderer->queryBuilder->setMode(0)
-            ->setTable('cart')
-            ->joinTable('dbuser','cart',0,'userfk')
-            ->joinTable('product','cart',0,'productfk')
-            ->setCols('product',array('stock'))
-            ->orderBy(array('cart.id'))
-            ->executeStatement();
-        var_dump($statement);
     }
 
 }
