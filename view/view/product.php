@@ -9,10 +9,11 @@ if($product['discount']!=null)
     $product['price']=$product['price']*$product['discount'];
 if($product['image']!=null)
     $image=$path.$product['image'];
-$target_dir = __DIR__."/../../";
+$target_dir = __DIR__."/../../../";
 if(!file_exists($target_dir.$image))
+    $image="https://i.imgur.com/72xjDmY.jpg";
     //echo$image; //trying to make sure if the image does not exist/cannot be found then it will be replaced by default no image link
-?>
+    ?>
 <div class="content">
   <div class="container_12">
     <div class="grid_12">

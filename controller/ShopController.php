@@ -147,7 +147,7 @@ class ShopController extends BaseController implements ControllerInterface
             $this->renderer->queryBuilder->setMode(2)
                 ->setTable('cart')
                 ->setColsWithValues('cart',array('id','productfk','userfk','amount'),
-                    array(null,$data['id'],$this->renderer->sessionManager->getSessionItem('user','id'),$data['amount']))
+                    array(null,$data['id'],$this->renderer->sessionManager->getSessionItem('User','id'),$data['amount']))
                 ->executeStatement();
             $this->httpHandler->redirect('cart','cart');
         }
