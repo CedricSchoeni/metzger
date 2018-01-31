@@ -203,20 +203,17 @@ function changeFilterMode(val){
     }
 }
 
-function changeAmount(productId, str, priceId){
+function changeAmount(productId, str, priceId, price){
     var xhttp;
     var amount = document.getElementById(productId);
-    var price = document.getElementById(priceId);
+    var priceElem = document.getElementById(priceId);
     var newAmount = parseInt(amount.innerHTML) + str;
-    console.log(newAmount);
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             if (this.responseText != ""){
-
                 amount.innerHTML = this.responseText;
-                //price.innerHTML = this.responseText * price;
+                priceElem.innerHTML = this.responseText * price;
             }
         }
     };

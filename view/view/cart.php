@@ -19,7 +19,7 @@ $cartItems = $this->cart;
                 <div class="title"><?php echo$cart['productname']?></div>
                 <ul class="list2">
                     <li>Price: <span id="price<?php echo$cart['id']?>"><?php echo$cart['price']*$cart['amount']?></span></li>
-                    <li>Amount: <span id="amount<?php echo$cart['id']?>"><?php echo$cart['amount']?></span><br><button class="btn" onclick="changeAmount('amount<?php echo$cart['id']?>', 1, 'price<?php echo$cart['id']?>');">+</button><button class="btn" onclick="changeAmount('amount<?php echo$cart['id']?>', -1, 'price<?php echo$cart['id']?>');">-</button></li>
+                    <li>Amount: <span id="<?php echo$cart['id']?>"><?php echo$cart['amount']?></span><br><button class="btn" onclick="changeAmount('<?php echo$cart['id']?>', 1, 'price<?php echo$cart['id']?>', <?php echo$cart['price']?>);">+</button><button class="btn" onclick="changeAmount('<?php echo$cart['id']?>', -1, 'price<?php echo$cart['id']?>', <?php echo$cart['price']?>);">-</button></li>
                     <li><button class="btn" onClick="location.href='/cart/remove/<?php echo$cart['id']?>'">Remove</button></li>
                 </ul>
             </div>

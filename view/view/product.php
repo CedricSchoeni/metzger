@@ -40,10 +40,9 @@ if(!file_exists($target_dir.$image))
           <?php }?>
           <li>
 
-              <?php echo $this->formHelper->createForm("user","/shop/addCart/$product[id]","POST","Buy"); ?>
+              <?php echo $this->formHelper->createForm("user","/cart/addCart/$product[id]","POST","Buy"); ?>
               <input type="number" name="amount" value="1" min="1" max="<?php echo$product['stock']?>">
               <input type="hidden" name="id" value="<?php echo$product['id']?>">
-              <input type="hidden" name="stock" value="<?php echo$product['stock']?>">
               <div class="btns">
                   <button type="submit" class="btn">Add to Cart</button>
               </div>

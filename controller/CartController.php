@@ -34,7 +34,7 @@ class CartController extends BaseController
                 ->joinTable('product', 'cart', '0', 'productfk')
                 ->addCond('cart', 'id', 0, $id, 'true')
                 ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
-                ->executeStatement()[0]['stock'];
+                ->executeStatement();
             if ($newAmount <= $stock && $newAmount > 0){
                 $this->renderer->queryBuilder->setMode(1)->setTable('cart')
                     ->setColsWithValues('cart', array('amount'), array($newAmount))
@@ -53,6 +53,35 @@ class CartController extends BaseController
                 ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
                 ->executeStatement();
             $this->httpHandler->redirect('cart', 'cart');
+        }
+    }
+
+    function addCart($id){
+        if ($id > 0 && $this->httpHandler->isPost()){
+            // get stock of product
+            $stock = $this->renderer->queryBuilder->setMode(0)->setTable('product')
+                ->addCond('product', 'id', '0', $id, false)
+                ->executeStatement()[0]['Stock'];
+            $data = $this->httpHandler->getData();
+            if ($data['amount'] > 0){
+                // check if item is already in cart
+                $amount = $this->renderer->queryBuilder->setMode(0)->setTable('cart')
+                    ->addCond('cart', 'productFk', '0', $id, true)
+                    ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
+                    ->executeStatement()[0];
+                if ($amount['Amount'] > 0){
+                    $newAmount = ($data['amount'] + $amount['Amount'] >= $stock) ? $stock : $data['amount'] + $amount['Amount'];
+                    $this->changeAmount($amount['ID'], $newAmount);
+                } else {
+                    $newAmount = ($data['amount'] >= $stock) ? $stock : $data['amount'];
+                    $this->renderer->queryBuilder->setMode(2)->setTable('cart')
+                        ->setColsWithValues('cart', array('id', 'productfk', 'userfk', 'amount'), array('', $id, $this->renderer->sessionManager->getSessionItem('User', 'id'), $newAmount))
+                        ->executeStatement();
+                }
+                $this->httpHandler->redirect('cart', 'cart');
+            } else {
+                $this->httpHandler->redirect('shop', 'products');
+            }
         }
     }
 }
