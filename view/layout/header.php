@@ -54,9 +54,9 @@
                         <li class="<?php if ($this->headerIndex == 3) echo'current'?>"><a href="/base/partners">Our Partners</a></li>
                         <li class="<?php if ($this->headerIndex == 4) echo'current'?>"><a href="/base/contact">Contact Us</a></li>
                         <li class="<?php if ($this->headerIndex == 5) echo'current'?>"><a href="/user/user">You</a></li>
-                        <?php if(isset($_SESSION['User'])){ ?>
+                        <?php if($this->sessionManager->isSet('User')){ ?>
                         <li class="<?php if ($this->headerIndex == 6) echo'current'?>"><a href="/shop/sell">Sell</a></li>
-                        <li class="<?php if ($this->headerIndex == 7) echo'current'?>"><a href="/shop/cart">Cart</a></li>
+                        <li class="<?php if ($this->headerIndex == 7) echo'current'?>"><a href="/cart/cart">Cart</a></li>
                         <?php }?>
                     </ul>
                 </nav>
