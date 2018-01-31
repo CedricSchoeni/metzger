@@ -11,7 +11,7 @@ if($datBoi->alert['alert']){
  ?>
 <script>customMessage("<?php echo$datBoi->alertTitle?>","<?php echo$datBoi->alertContent?>",<?php echo$datBoi->alertGood?>)</script>
 <?php }
-var_dump($datBoi->sessionManager->getSessionItem('alert'));?>
+?>
 <div class="content">
     <div class="container_12">
         <div class="grid_12">

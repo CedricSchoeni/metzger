@@ -137,6 +137,22 @@ class ShopController extends BaseController implements ControllerInterface
         }
     }
 
+    public function addCart(int $id){
+        if($this->httpHandler->isPost()){
+            $data = $this->httpHandler->getData();
+            if($data['id']!=$id || $data['stock']<$data['amount']){
+                $this->httpHandler->redirect("base","index");
+                die("error, invalid purchase");
+            }
+            $this->renderer->queryBuilder->setMode(2)
+                ->setTable('cart')
+                ->setColsWithValues('cart',array('id','productfk','userfk','amount'),
+                    array(null,$data['id'],$this->renderer->sessionManager->getSessionItem('user','id'),$data['amount']))
+                ->executeStatement();
+            $this->httpHandler->redirect('cart','cart');
+        }
+    }
+
 
 
 }
