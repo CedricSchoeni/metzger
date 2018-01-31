@@ -202,3 +202,36 @@ function changeFilterMode(val){
         document.getElementById('searchInput').value = "";
     }
 }
+
+function changeAmount(productId, str, priceId){
+    var xhttp;
+    var amount = document.getElementById(productId);
+    var price = document.getElementById(priceId);
+    var newAmount = parseInt(amount.innerHTML) + str;
+    console.log(newAmount);
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            if (this.responseText != ""){
+
+                amount.innerHTML = this.responseText;
+                //price.innerHTML = this.responseText * price;
+            }
+        }
+    };
+    xhttp.open("GET", "/cart/changeAmount/"+productId+"/"+newAmount, true);
+    xhttp.send();
+}
+
+
+
+
+
+
+
+
+
+
+
+
