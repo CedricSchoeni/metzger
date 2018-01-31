@@ -6,12 +6,13 @@
  * Time: 09:08
  */
 $cartItems = $this->cart;
+$price=0;
 ?>
 
 <div class="content">
     <div class="container_12">
         <h3 class="pb1"><span>Shopping Cart</span></h3>
-        <?php if (!empty($cartItems)) foreach($cartItems as $cart){?>
+        <?php if (!empty($cartItems)){ foreach($cartItems as $cart){?>
         <div class="grid_12 split">
             <div class="grid_2"></div>
             <div class="grid_4"><img src="<?php echo($cart['image']) ? "/NesriDiscount/assets/images/products/".$cart['image'] :"https://i.imgur.com/72xjDmY.jpg";?>" alt="product_image" class="img_inner fleft"></div>
@@ -25,6 +26,15 @@ $cartItems = $this->cart;
             </div>
         </div>
         <div class="clear"></div>
+        <?php $price+=$cart['price']*$cart['amount'];}?>
+            <div class="text1 center" >Price: <span id="price"><?php echo$price;?></span> somali dollers</div>
+        <div class="btns">
+            <button class="btn" onClick="location.href='/cart/buyCart'">Buy Cart</button>
+        </div>
+
+
+
+
         <?php } else {?>
             <div class="grid_12 text1 center">Your cart is empty</div>
 

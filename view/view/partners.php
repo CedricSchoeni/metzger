@@ -48,9 +48,9 @@
     </div>
     <div class="clear"></div>
     <div class="logos">
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
-      <div class="grid_4"><a href="http://www.UgandaOnline.com"><img src="https://pbs.twimg.com/media/DS45VGDXkAAQsGW.png" alt="UgandaOnline"></a></div>
+      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt="Nesiri" title="Nesiri Java Online"></a></div>
+      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt="BossBaby" title="BossBaby"></a></div>
+      <div class="grid_4"><a href="http://www.UgandaOnline.com"><img src="https://pbs.twimg.com/media/DS45VGDXkAAQsGW.png" alt="UgandaOnline" title="Uganda Online"></a></div>
     </div>
     <div class="grid_12">
       <p class="text1 col1"><a href="#">Our three main competitors</a></p>

@@ -207,12 +207,15 @@ function changeAmount(productId, str, priceId, price){
     var xhttp;
     var amount = document.getElementById(productId);
     var priceElem = document.getElementById(priceId);
-    var newAmount = parseInt(amount.innerHTML) + str;
+    var priceAll = document.getElementById('price');
+    var oldAmount = parseInt(amount.innerHTML);
+    var newAmount = oldAmount + str;
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText != ""){
                 amount.innerHTML = this.responseText;
+                priceAll.innerHTML = parseInt(priceAll.innerHTML)+(this.responseText-oldAmount) * price;
                 priceElem.innerHTML = this.responseText * price;
             }
         }
