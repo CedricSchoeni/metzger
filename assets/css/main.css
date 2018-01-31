@@ -11,3 +11,7 @@
 
 .tag {display:inline-block;padding:5px;background-color:#009fb3;color:white;border-radius:5px;margin:5px;}
 .sectionTitle {font-weight:bold;font-size:17px;margin-bottom:10px;}
+
+.list2 li+li {margin-top: 10px;padding-top: 10px;border-top: 1px solid #d1d1d1;}
+.container_12 .split+.split{border-top: 1px solid #d1d1d1;}
+

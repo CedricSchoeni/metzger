@@ -35,7 +35,6 @@ class CartController extends BaseController
                 ->addCond('cart', 'id', 0, $id, 'true')
                 ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
                 ->executeStatement()[0]['stock'];
-
             if ($newAmount <= $stock && $newAmount > 0){
                 $this->renderer->queryBuilder->setMode(1)->setTable('cart')
                     ->setColsWithValues('cart', array('amount'), array($newAmount))
@@ -44,6 +43,16 @@ class CartController extends BaseController
                     ->executeStatement();
                 echo$newAmount;
             }
+        }
+    }
+
+    function remove($id){
+        if ($id > 0){
+            $this->renderer->queryBuilder->setMode(3)->setTable('cart')
+                ->addCond('cart', 'id', 0, $id, 'true')
+                ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
+                ->executeStatement();
+            $this->httpHandler->redirect('cart', 'cart');
         }
     }
 }
