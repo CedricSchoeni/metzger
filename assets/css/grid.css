@@ -81,6 +81,7 @@ body {
 
 .container_12 .grid_2 {
   width: 140px;
+    min-height:1px;
 }
 
 .container_12 .grid_3 {
