@@ -44,21 +44,20 @@ class DatabaseSeed
         $this->dbConnection->prepare($this->dropDatabase('nesridiscount'))->execute();
         $this->dbConnection->prepare($this->createDatabase('nesridiscount'))->execute();
         $this->dbConnection->prepare($this->useDatabase('nesridiscount'))->execute();
-
+        //Create Table Statements
         $this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS DBUser (ID INT PRIMARY KEY AUTO_INCREMENT,Email varchar(255),Username varchar(100),Password varchar(255),EndDate datetime);')->execute();
         $this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS Tags (ID INT PRIMARY KEY AUTO_INCREMENT,TagName varchar(100));')->execute();
         $this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS Product_Tag (ID INT PRIMARY KEY AUTO_INCREMENT,TagsFk int,ProductFk int);')->execute();
         $this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS Product (ID INT PRIMARY KEY AUTO_INCREMENT,DBUserFK int,Productname varchar(100),Image varchar(100),Stock int,Rating int, Price float, Discount float, Description varchar(500) );')->execute();
-        //$this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS Images (ID INT PRIMARY KEY AUTO_INCREMENT,Image varchar(100));')->execute();
         $this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS Review(ID INT PRIMARY KEY AUTO_INCREMENT,DBUserFK int,ProductFk int, Title varchar(100), Content varchar(500), Rating int);')->execute();
-        $this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS Cart (ID INT PRIMARY KEY AUTO_INCREMENT,ProductFK int,UserFK int);')->execute();
-
+        $this->dbConnection->prepare('CREATE TABLE IF NOT EXISTS Cart (ID INT PRIMARY KEY AUTO_INCREMENT,ProductFK int,UserFK int, Amount int);')->execute();
+        //Alter Table Statements
         $this->dbConnection->prepare('ALTER TABLE Product_Tag ADD CONSTRAINT FOREIGN KEY (tagFK) REFERENCES Tag(id) ON DELETE RESTRICT;')->execute();
         $this->dbConnection->prepare('ALTER TABLE Product_Tag ADD CONSTRAINT FOREIGN KEY (productFK) REFERENCES Product(id) ON DELETE CASCADE;')->execute();
         $this->dbConnection->prepare('ALTER TABLE Cart ADD CONSTRAINT FOREIGN KEY (DBUserFK) REFERENCES DBUser(id) ON DELETE CASCADE;')->execute();
         $this->dbConnection->prepare('ALTER TABLE Cart ADD CONSTRAINT FOREIGN KEY (productFK) REFERENCES Product(id) ON DELETE CASCADE;')->execute();
         //$this->dbConnection->prepare('ALTER TABLE Product ADD CONSTRAINT FOREIGN KEY (Product_Tag) REFERENCES Product_Tag(id) ON DELETE RESTRICT')->execute();
-        //$this->dbConnection->prepare('ALTER TABLE DBUser ADD CONSTRAINT FOREIGN KEY (cartFK) REFERENCES Cart(id) ON DELETE CASCADE;')->execute();
+        $this->dbConnection->prepare('ALTER TABLE DBUser ADD CONSTRAINT FOREIGN KEY (cartFK) REFERENCES Cart(id) ON DELETE CASCADE;')->execute();
         $this->dbConnection->prepare('ALTER TABLE Product ADD CONSTRAINT FOREIGN KEY (DBUserFK) REFERENCES DBUser(id) ON DELETE RESTRICT ')->execute();
         $this->dbConnection->prepare('ALTER TABLE Review ADD CONSTRAINT FOREIGN KEY (DBUserFK) REFERENCES DBUser(id) ON DELETE CASCADE;')->execute();
 
@@ -68,6 +67,7 @@ class DatabaseSeed
 
         //Generate Base Data (Admin/Webhost User, Base Products)
         //TODO code
+
 
 
         // Creation of new Roles in DB

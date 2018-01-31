@@ -56,6 +56,7 @@
                         <li class="<?php if ($this->headerIndex == 5) echo'current'?>"><a href="/user/user">You</a></li>
                         <?php if(isset($_SESSION['User'])){ ?>
                         <li class="<?php if ($this->headerIndex == 6) echo'current'?>"><a href="/shop/sell">Sell</a></li>
+                        <li class="<?php if ($this->headerIndex == 7) echo'current'?>"><a href="/shop/cart">Cart</a></li>
                         <?php }?>
                     </ul>
                 </nav>
