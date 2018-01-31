@@ -144,13 +144,31 @@ class ShopController extends BaseController implements ControllerInterface
                 $this->httpHandler->redirect("base","index");
                 die("error, invalid purchase");
             }
+            if($this->checkInCart(!$data['id'],$this->renderer->sessionManager->getSessionItem('User','id')))
             $this->renderer->queryBuilder->setMode(2)
                 ->setTable('cart')
                 ->setColsWithValues('cart',array('id','productfk','userfk','amount'),
                     array(null,$data['id'],$this->renderer->sessionManager->getSessionItem('User','id'),$data['amount']))
                 ->executeStatement();
             $this->httpHandler->redirect('cart','cart');
+            else
+                $this->renderer->queryBuilder->setMode(1)
+                    ->setTable('cart')
+                    ->setColsWithValues('cart',array('amount'),array('amounnt+'.$data['amount']))
+                    ->addCond();
         }
+    }
+    private function checkInCart(int $productId,int $userId){
+        $statement=$this->renderer->queryBuilder->setMode(0)
+            ->setTable('cart')
+            ->setCols('cart',array('id'))
+            ->addCond('cart','productfk',0,$productId,true)
+            ->addCond('cart','userfk',0,$userId,'')
+            ->executeStatement();
+        if($statement['id'])
+            return true;
+        else
+            return false;
     }
 
 
