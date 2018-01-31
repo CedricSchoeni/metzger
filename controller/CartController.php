@@ -31,10 +31,10 @@ class CartController extends BaseController
         if ($id > 0){
             $stock = $this->renderer->queryBuilder->setMode(0)->setTable('cart')
                 ->setCols('product', array('stock'))
-                ->joinTable('product', 'cart', '0', 'productfk')
-                ->addCond('cart', 'id', 0, $id, 'true')
-                ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
-                ->executeStatement();
+                ->joinTable('product', 'cart', 0, 'productfk')
+                ->addCond('cart', 'id', 0, $id, true)
+                ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), '')
+                ->executeStatement()[0]['stock'];
             if ($newAmount <= $stock && $newAmount > 0){
                 $this->renderer->queryBuilder->setMode(1)->setTable('cart')
                     ->setColsWithValues('cart', array('amount'), array($newAmount))
