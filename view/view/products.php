@@ -13,7 +13,7 @@
       <div class="grid_12">
           <h3><span>Filter</span></h3>
           <?php echo$this->formHelper->createForm('filter', "", "", "", "filterForm");?>
-          <input class="fleft" id="searchInput" type="text" value="" placeholder="Filter search ..." onkeyup="filterResults(this.value);">
+          <input class="fleft" id="searchInput" type="text" value="" placeholder="Filter search ..." onkeyup="filterResults(this.value);" onkeypress="return event.keyCode !== 13;">
           <label><input type="radio" name="radio1" value="1" onclick="changeFilterMode(this.value);" checked>Filter by Tags</label>
           <label><input type="radio" name="radio1" value="2" onclick="changeFilterMode(this.value);">Filter by Username</label>
           <label><input type="radio" name="radio1" value="3" onclick="changeFilterMode(this.value);">Filter by Product name</label>
