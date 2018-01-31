@@ -121,6 +121,7 @@ class ShopController extends BaseController implements ControllerInterface
         $this->renderer->setAttribute('product',$productStatement);
         $this->renderer->setAttribute('tag', $tagStatement);
     }
+
     public function buy(int $id){
         if($this->httpHandler->isPost()){
             $data = $this->httpHandler->getData();
@@ -135,6 +136,7 @@ class ShopController extends BaseController implements ControllerInterface
             $this->httpHandler->redirect('shop','products');
         }
     }
+
 
 
 }
