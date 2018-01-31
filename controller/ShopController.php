@@ -142,6 +142,7 @@ class ShopController extends BaseController implements ControllerInterface
             $data = $this->httpHandler->getData();
             if($data['id']!=$id || $data['stock']<$data['amount']){
                 $this->httpHandler->redirect("base","index");
+                var_dump($data);
                 die("error, invalid purchase");
             }
             if($this->checkInCart(!$data['id'],$this->renderer->sessionManager->getSessionItem('User','id')))
@@ -150,25 +151,35 @@ class ShopController extends BaseController implements ControllerInterface
                 ->setColsWithValues('cart',array('id','productfk','userfk','amount'),
                     array(null,$data['id'],$this->renderer->sessionManager->getSessionItem('User','id'),$data['amount']))
                 ->executeStatement();
-            $this->httpHandler->redirect('cart','cart');
             else
+                $amount=$this->renderer->queryBuilder->setMode(0)
+                    ->setTable('cart')
+                    ->setCols('cart',array('amount'))
+                    ->addCond('cart','productfk',0,$data['id'],true)
+                    ->addCond('cart','userfk',0,$this->renderer->sessionManager->getSessionItem('User','id'),'')
+                    ->executeStatement();
+
                 $this->renderer->queryBuilder->setMode(1)
                     ->setTable('cart')
-                    ->setColsWithValues('cart',array('amount'),array('amounnt+'.$data['amount']))
-                    ->addCond();
+                    ->setColsWithValues('cart',array('amount'),array($amount['amount']+$data['amount']))
+                    ->addCond('cart','productfk',0,$data['id'],true)
+                ->addCond('cart','userfk',0,$this->renderer->sessionManager->getSessionItem('User','id'),'')
+                ->executeStatement();
+
+            $this->httpHandler->redirect('cart','cart');
         }
     }
-    private function checkInCart(int $productId,int $userId){
+    private function checkInCart(int $productId, $userId){
         $statement=$this->renderer->queryBuilder->setMode(0)
             ->setTable('cart')
             ->setCols('cart',array('id'))
             ->addCond('cart','productfk',0,$productId,true)
             ->addCond('cart','userfk',0,$userId,'')
             ->executeStatement();
-        if($statement['id'])
+        if(empty($statement))
             return true;
-        else
-            return false;
+
+        return false;
     }
 
 
