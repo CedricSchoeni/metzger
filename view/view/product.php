@@ -12,7 +12,6 @@ if($product['image']!=null)
 $target_dir = __DIR__."/../../../";
 if(!file_exists($target_dir.$image))
     $image="https://i.imgur.com/72xjDmY.jpg";
-    //echo$image; //trying to make sure if the image does not exist/cannot be found then it will be replaced by default no image link
     ?>
 <div class="content">
   <div class="container_12">

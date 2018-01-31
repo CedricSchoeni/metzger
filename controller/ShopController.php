@@ -109,7 +109,7 @@ class ShopController extends BaseController implements ControllerInterface
         $this->renderer->headerIndex = 2;
         $productStatement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')->setCols('Product',array('id','productname','image','price','discount','stock','rating','description'))
             ->setCols('DBUser',array('username'))
-            ->joinTable('DBUser','Product','0','DBUserFK')
+            ->joinTable('DBUser','Product',0,'DBUserFK')
             ->addCond('product','id',0,$id,'')->executeStatement();
 
         $tagStatement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')
@@ -135,6 +135,21 @@ class ShopController extends BaseController implements ControllerInterface
                 ->executeStatement();
             $this->httpHandler->redirect('shop','products');
         }
+    }
+
+    public function buyCart(){
+        if(!$this->renderer->sessionManager->isSet('User')){
+            $this->httpHandler->redirect('base','index');
+            die("not logged in!");
+        }
+        $statement=$this->renderer->queryBuilder->setMode(0)
+            ->setTable('cart')
+            ->joinTable('dbuser','cart',0,'userfk')
+            ->joinTable('product','cart',0,'productfk')
+            ->setCols('product',array('stock'))
+            ->orderBy(array('cart.id'))
+            ->executeStatement();
+        var_dump($statement);
     }
 
 }
