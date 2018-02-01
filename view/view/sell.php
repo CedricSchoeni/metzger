@@ -34,14 +34,14 @@
                     <input type="number" min="1" name="stock" placeholder="Stock">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid number</span><span class="empty error-empty">*This field is required.</span> </label>
-                <label for="Price">
+                <label for="price">
                     <input type="number"  step="0.05" name="price" placeholder="Price" required>
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
-                <label for="Discount">
-                    <input type="number"  step="1" max="99" name="discount" placeholder="Discount (optional)">
+                <label for="discount">
+                    <input type="number"  step="1" min="1" max="99" name="discount" placeholder="Discount (optional)">
                     <br class="clear">
-                    <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+                    </label>
 
                 <div id="tags">
                     <label class="tag1">
