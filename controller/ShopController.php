@@ -38,10 +38,10 @@ class ShopController extends BaseController implements ControllerInterface
             }
             if(isset($data['discount'])){
                 if($data['discount']<=0||$data['discount']>=100)
-                    $data['discount']=null;
+                    $data['discount']=0;
             }else
-                $data['discount']=null;
-            if($data['discount']!=null)
+                $data['discount']=0;
+            if($data['discount']!=0)
                 $data['discount']=($data['discount']/100);
             $product = new Product();
             $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","id");
