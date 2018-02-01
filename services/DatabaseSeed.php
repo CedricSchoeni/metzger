@@ -71,7 +71,7 @@ class DatabaseSeed
         $user = new User();
         $data = [];
         $data_1 = ['email'=>'admin@admin.ch','username' =>'admin', 'password' => 'admin12','enddate' => date("Y-m-d H:i:s")];
-        $data_2 = [''];
+        $data_2 = ['email'=>'ismail.buenuel@csbe.org','username' =>'ismail', 'password' => 'ismailB','enddate' => date("Y-m-d H:i:s")];
         array_push($data,$data_1);
         array_push($data,$data_2);
         foreach($data as $d){
@@ -86,15 +86,21 @@ class DatabaseSeed
 
         $product = new Product();
         $proddata = [];
-        $proddata_1 = ['userfk' =>'1','productname' =>'Peanut Butter', 'image' =>'Peanut Butter.jpg','stock' => 200,'price' => 50,'price' => 9.99,'discount' =>0.2, 'description' =>'This is our Peanut Butter, the BEST Peanut Butter of the Market'];
-        array_push($proddata,$proddata_1);
+        $prod=[];
+        $prod[0] = ['userfk' =>'1','productname' =>'Peanut Butter', 'image' =>'diggerman.jpg','stock' => 200,'price' => 50, 'discount' =>0.2, 'description' =>'This is the world-wide famous diggerman, he digs and he\'s a cis-white male! '];
+        $prod[1] = ['userfk' =>'1','productname' =>'A Noose Rope', 'image' =>'Kids.jpg','stock' => 500,'price' => 200, 'discount' =>0.5, 'description' =>'This noose is already tied with this rope so you can use it for whatever you want!'];
+        $prod[2] = ['userfk' =>'1','productname' =>'Jeff 21JumpStreet', 'image' =>'JmDbE.gif','stock' => 2100,'price' => 420, 'discount' =>0.21, 'description' =>'This is imagery of god himself.'];
+        $prod[3] = ['userfk' =>'1','productname' =>'Mr.Worldwide', 'image' =>'json.jpg','stock' => 20,'price' => 360, 'discount' =>0, 'description' =>'Buy a world with mr. worldwide today!'];
+        $prod[4] = ['userfk' =>'2','productname' =>'Border Warfare', 'image' =>'mexicanswelcome.jpg','stock' => 1024,'price' => 1488, 'discount' =>0, 'description' =>'This new Border Warfare has come out on all consoles (WII U included).'];
+        $prod[5] = ['userfk' =>'1','productname' =>'John Scarce', 'image' =>'ScarcelsThicc.jpg','stock' => 50,'price' => 1942, 'discount' =>0.25, 'description' =>'Hey what\'s up guys it\'s Scarce here.'];
+        foreach($prod as $temp)
+        array_push($proddata,$temp);
         foreach ($proddata as $p){
             $_POST['data'] = $proddata;
             $product->clearEntity();
             $product->patchEntity($p);
             $product->save();
         }
-        var_dump($proddata);
 
 
 

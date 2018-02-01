@@ -4,7 +4,7 @@
 .wordBreak{word-break: break-all}
 
 .customMessageContainer{position: fixed;  height: 100vh; width: 100%; z-index: 12345;}
-.customMessageBox{background-color: dimgray; right:0; bottom: 0; z-index: 999; position: absolute; color: white; width: 20%; height: 15vh;}
+.customMessageBox{background-color: dimgray; right:0; bottom: 0; z-index: 999; position: absolute; color: white; width: 22.5%; height: 15vh;}
 .customMessageTitle{display: inline;}
 .customMessageContent{display: block;}
 .customMessageBackground{width:100%; height: 100%; z-index: 888; background-color: #414141; opacity: 0.75}
