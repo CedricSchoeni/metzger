@@ -31,18 +31,20 @@ class CartController extends BaseController
 
     function changeAmount($id, $newAmount){
         $this::$dontRender = true;
+
         if ($id > 0){
             $stock = $this->renderer->queryBuilder->setMode(0)->setTable('cart')
                 ->setCols('product', array('stock'))
                 ->joinTable('product', 'cart', 0, 'productfk')
-                ->addCond('cart', 'id', 0, $id, true)
-                ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), '')
+                ->addCond('cart', 'id', 0, $id, 0)
+                ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'true')
                 ->executeStatement()[0]['stock'];
+
             if ($newAmount <= $stock && $newAmount > 0){
                 $this->renderer->queryBuilder->setMode(1)->setTable('cart')
                     ->setColsWithValues('cart', array('amount'), array($newAmount))
                     ->addCond('cart', 'id', 0, $id, 'true')
-                    ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
+                    ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'true')
                     ->executeStatement();
                 echo$newAmount;
             }
@@ -53,7 +55,7 @@ class CartController extends BaseController
         if ($id > 0){
             $this->renderer->queryBuilder->setMode(3)->setTable('cart')
                 ->addCond('cart', 'id', 0, $id, 'true')
-                ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'false')
+                ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'true')
                 ->executeStatement();
             $this->httpHandler->redirect('cart', 'cart');
         }
