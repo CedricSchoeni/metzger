@@ -87,19 +87,23 @@ class UserController extends BaseController implements ControllerInterface
     public function login(){
         if($this->httpHandler->isPost() && isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] && $_POST['password']) {
             $user = $this->renderer->queryBuilder->setMode(0)->setTable('DBUser')->addCond('DBUser', 'Username', '0', $_POST['username'],false)->setCols('DBUser', array('id', 'Username', 'Password', 'Email', 'EndDate'))->executeStatement();
-            //var_dump($user);
+
             if ($user && password_verify($_POST['password'], $user[0]['Password'])) {
                 $this->renderer->sessionManager->setSessionArray('User', $user[0]);
-                //echo'right';
                 $this->httpHandler->redirect('base', 'index');
             } else {
+                $this->renderer->sessionManager->setSessionArray('alert',array(
+                    'alert'=>true,
+                    'title'=>'Username or Password invalid!',
+                    'content'=>'Invalid Credentials.',
+                    'good'=>'false'));
                 $this->httpHandler->redirect('user','user');
-                //echo'wonrg';
+
             }
         } else {
             if ($this->renderer->sessionManager->isSet('User')){
                 //echo'right';
-                $this->httpHandler->redirect('base','index');
+                $this->httpHandler->redirect('shop','index');
             }
         }
     }
