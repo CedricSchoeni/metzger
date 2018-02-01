@@ -8,6 +8,7 @@
 
 namespace services;
 use models\Answer;
+use models\Product;
 use models\Profile;
 use models\Questions;
 use models\Role;
@@ -67,6 +68,36 @@ class DatabaseSeed
 
         //Generate Base Data (Admin/Webhost User, Base Products)
         //TODO code
+        $user = new User();
+        $data = [];
+        $data_1 = ['email'=>'admin@admin.ch','username' =>'admin', 'password' => 'admin12','enddate' => date("Y-m-d H:i:s")];
+        $data_2 = [''];
+        array_push($data,$data_1);
+        array_push($data,$data_2);
+        foreach($data as $d){
+            $_POST['data'] = $data;
+            $user->clearEntity();
+            $user->patchEntity($d);
+            if ($user->isValid()){
+                $user->save();
+            }
+        }
+
+
+        $product = new Product();
+        $proddata = [];
+        $proddata_1 = ['userfk' =>'1','productname' =>'Peanut Butter', 'image' =>'Peanut Butter.jpg','stock' => 200,'price' => 50,'price' => 9.99,'discount' =>0.2, 'description' =>'This is our Peanut Butter, the BEST Peanut Butter of the Market'];
+        array_push($proddata,$proddata_1);
+        foreach ($proddata as $p){
+            $_POST['data'] = $proddata;
+            $product->clearEntity();
+            $product->patchEntity($p);
+            $product->save();
+        }
+        var_dump($proddata);
+
+
+
 
 
 
