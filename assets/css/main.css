@@ -14,4 +14,7 @@
 
 .list2 li+li {margin-top: 10px;padding-top: 10px;border-top: 1px solid #d1d1d1;}
 .container_12 .split{border-bottom: 1px solid #d1d1d1;margin:10px;padding:10px;}
+.oldPrice {padding:5px 2px;text-decoration: line-through;font-weight:bold;}
+.newPrice {padding:5px 2px;font-weight:bold;color:indianred;}
+.price {padding:5px 2px;font-weight:bold;}
 
