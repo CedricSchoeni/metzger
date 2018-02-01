@@ -27,7 +27,7 @@ $price=0;
         </div>
         <div class="clear"></div>
         <?php $price+=$cart['price']*$cart['amount'];}?>
-            <div class="text1 center" >Price: <span id="price"><?php echo$price;?></span> somali dollers</div>
+            <div class="text1 center" >Price: <span id="price"><?php echo$price;?></span>$</div>
         <div class="btns">
             <button class="btn" onClick="location.href='/cart/buyCart'">Buy Cart</button>
         </div>
