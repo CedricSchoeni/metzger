@@ -100,7 +100,6 @@ class DatabaseSeed
 
 
 
-
         // Creation of new Roles in DB
         /*
         $role = new Role();

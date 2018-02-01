@@ -5,8 +5,6 @@ $product = $this->product[0];
 $tags = ($this->tag[0]['tagname'] != null) ? $this->tag : null;
 $image="https://i.imgur.com/72xjDmY.jpg";
 $path="/NesriDiscount/assets/images/products/";
-if($product['discount']!=null)
-    $product['price']=$product['price']*$product['discount'];
 if($product['image']!=null)
     $image=$path.$product['image'];
 $target_dir = __DIR__."/../../../";

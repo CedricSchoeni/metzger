@@ -60,17 +60,34 @@ FLOURISH.</span></h2>
       </div>
     </div>
     <div class="grid_12">
-      <h3><span>Recent Works</span></h3>
+      <h3><span>Special Discount Offers</span></h3>
     </div>
     <div class="clear"></div>
     <div class="works">
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
-      <div class="clear"></div>
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>
+        <?php
+        if(isset($this->products[0]['ID'])){
+            $products=$this->products;
+            $count=6;
+            if(count($products)<6)
+                $count=count($products);
+            $noImg="https://i.imgur.com/72xjDmY.jpg";
+            $path="/NesriDiscount/assets/images/products/";
+            $dir=__DIR__."/../../../";
+            for ($i=0; $i<$count;$i++){
+                $image=$noImg;
+                if($products[$i]['Image']!=null&&file_exists($dir.$path.$products[$i]['Image']))
+                    $image=$path.$products[$i]['Image']
+                ?>
+      <!--<div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>-->
+                <div class="grid_4">
+                    <a href="<?php echo$image?>" class="gal"><img src="<?php echo$image?>" alt=""></a>
+                    <div class="text1 col1 wordBreak"><?php echo$products[$i]['Productname']?></div>
+                    <div class="wordBreak"><?php echo$this->htmlHelper->formatPrice($products[$i]['Price'],$products[$i]['Discount'])?></div><br>
+                    <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>
+                </div>
+        <?php }}else{?>
+        <div class="center text1">There are no discount offers available at this moment.</div>
+        <?php }?>
     </div>
     <div class="clear"></div>
     <div class="grid_12">
@@ -79,7 +96,7 @@ FLOURISH.</span></h2>
         <blockquote>
           <img src="https://png.icons8.com/dotty/128/000000/user-male.png" alt="" class="img_inner fleft">
           <div class="extra_wrapper">
-            <p>“Lorem ipsum dolor sit amet, consecteturdiing elit. Ut sit amet lorem sit amet nunc mattisrt imperdiet ac sit amet dui.”</p>
+            <p>“I was very disappointed with this site's service, especially when i heard that I had to download something called "XAMPP" to be able to reach their website localhost.”</p>
             <span class="col2 upp">Lisa Smith  </span> - client
           </div>
         </blockquote>
@@ -88,7 +105,7 @@ FLOURISH.</span></h2>
         <blockquote>
           <img src="https://png.icons8.com/dotty/128/000000/user-male.png" alt="" class="img_inner fleft">
           <div class="extra_wrapper">
-            <p>“Lorem ipsum dolor sit amet, consecteturdiing elit. Ut sit amet lorem sit amet nunc mattisrt imperdiet ac sit amet dui.”</p>
+            <p>“I was considering buying stakes in this company's shop but once i saw the background code chaos I decided not to go through with it.”</p>
             <span class="col2 upp">James Bond  </span> - client
           </div>
         </blockquote>
