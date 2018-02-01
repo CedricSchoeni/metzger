@@ -203,7 +203,7 @@ function changeFilterMode(val){
     }
 }
 
-function changeAmount(productId, str, priceId, price){
+function changeAmount(productId, str, priceId, price, discount){
     var xhttp;
     var amount = document.getElementById(productId);
     var priceElem = document.getElementById(priceId);
@@ -216,8 +216,10 @@ function changeAmount(productId, str, priceId, price){
             console.log(this.responseText);
             if (this.responseText != ""){
                 amount.innerHTML = this.responseText;
-                priceAll.innerHTML = parseInt(priceAll.innerHTML)+(this.responseText-oldAmount) * price;
-                priceElem.innerHTML = this.responseText * price;
+                var newPrice = (price * (1 - discount));
+                priceAll.innerHTML = (parseInt(priceAll.innerHTML.split(-1,1))+(this.responseText-oldAmount) * newPrice);
+                priceElem.innerHTML = this.responseText * newPrice;
+
             }
         }
     };
