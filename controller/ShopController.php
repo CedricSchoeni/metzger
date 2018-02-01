@@ -41,7 +41,8 @@ class ShopController extends BaseController implements ControllerInterface
                     $data['discount']=null;
             }else
                 $data['discount']=null;
-
+            if($data['discount']!=null)
+                $data['discount']=($data['discount']/100);
             $product = new Product();
             $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","id");
             $data['image']=$filename;
