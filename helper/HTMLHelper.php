@@ -10,5 +10,7 @@ namespace helper;
 
 class HTMLHelper extends BaseHelper
 {
+    public function formatPrice($price, $discount){
 
+    }
 }
