@@ -38,6 +38,10 @@
                     <input type="number"  step="0.05" name="price" placeholder="Price" required>
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+                <label for="Discount">
+                    <input type="number"  step="1" max="99" name="discount" placeholder="Discount (optional)">
+                    <br class="clear">
+                    <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
 
                 <div id="tags">
                     <label class="tag1">
