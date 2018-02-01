@@ -66,7 +66,7 @@ class BaseController
             $dbseed = new DatabaseSeed();
             $dbseed->resetDatabase();
         }
-       // $this->httpHandler->redirect('base', 'index');
+        $this->httpHandler->redirect('shop', 'index');
     }
 
     public function about()

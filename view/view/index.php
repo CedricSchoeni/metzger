@@ -85,7 +85,8 @@ FLOURISH.</span></h2>
                     <div class="wordBreak"><?php echo$this->htmlHelper->formatPrice($products[$i]['Price'],$products[$i]['Discount'])?></div><br>
                     <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>
                 </div>
-        <?php }}else{?>
+        <?php if($i>1 && ($i+1)%3==0)echo"<div class='clear'></div>
+";}}else{?>
         <div class="center text1">There are no discount offers available at this moment.</div>
         <?php }?>
     </div>

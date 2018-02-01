@@ -9,9 +9,11 @@
 namespace services;
 use models\Answer;
 use models\Product;
+use models\product_tag;
 use models\Profile;
 use models\Questions;
 use models\Role;
+use models\Tag;
 use models\Tags;
 use models\User;
 
@@ -87,19 +89,51 @@ class DatabaseSeed
         $product = new Product();
         $proddata = [];
         $prod=[];
-        $prod[0] = ['userfk' =>'1','productname' =>'Peanut Butter', 'image' =>'diggerman.jpg','stock' => 200,'price' => 50, 'discount' =>0.2, 'description' =>'This is the world-wide famous diggerman, he digs and he\'s a cis-white male! '];
+        $prod[0] = ['userfk' =>'1','productname' =>'Digger Man', 'image' =>'diggerman.jpg','stock' => 200,'price' => 50, 'discount' =>0.2, 'description' =>'This is the world-wide famous diggerman, he digs and he\'s a cis-white male! '];
         $prod[1] = ['userfk' =>'1','productname' =>'A Noose Rope', 'image' =>'Kids.jpg','stock' => 500,'price' => 200, 'discount' =>0.5, 'description' =>'This noose is already tied with this rope so you can use it for whatever you want!'];
         $prod[2] = ['userfk' =>'1','productname' =>'Jeff 21JumpStreet', 'image' =>'JmDbE.gif','stock' => 2100,'price' => 420, 'discount' =>0.21, 'description' =>'This is imagery of god himself.'];
         $prod[3] = ['userfk' =>'1','productname' =>'Mr.Worldwide', 'image' =>'json.jpg','stock' => 20,'price' => 360, 'discount' =>0, 'description' =>'Buy a world with mr. worldwide today!'];
         $prod[4] = ['userfk' =>'2','productname' =>'Border Warfare', 'image' =>'mexicanswelcome.jpg','stock' => 1024,'price' => 1488, 'discount' =>0, 'description' =>'This new Border Warfare has come out on all consoles (WII U included).'];
-        $prod[5] = ['userfk' =>'1','productname' =>'John Scarce', 'image' =>'ScarcelsThicc.jpg','stock' => 50,'price' => 1942, 'discount' =>0.25, 'description' =>'Hey what\'s up guys it\'s Scarce here.'];
+        $prod[5] = ['userfk' =>'1','productname' =>'John Scarce', 'image' =>'ScarceIsThicc.jpg','stock' => 50,'price' => 1942, 'discount' =>0.25, 'description' =>'Hey what\'s up guys it\'s Scarce here.'];
         foreach($prod as $temp)
         array_push($proddata,$temp);
         foreach ($proddata as $p){
-            $_POST['data'] = $proddata;
+            $_POST['data'] = $prod;
             $product->clearEntity();
             $product->patchEntity($p);
             $product->save();
+        }
+        $tag = new Tag();
+        $tags=[];
+        $tags[0]=['tagname'=>'Official'];
+        $tags[1]=['tagname'=>'Meme'];
+        $tags[2]=['tagname'=>'Very Good'];
+        $tags[3]=['tagname'=>'HD'];
+        $tags[4]=['tagname'=>'SCRUM'];
+        foreach($tags as $t){
+            $_POST['data']=$tags;
+            $tag->clearEntity();
+            $tag->patchEntity($t);
+            $tag->save();
+        }
+        $product_tag=new product_tag();
+
+        $alreadyAdded=[];
+        $count=0;
+        for($a=0; $a<count($prod); $a++){
+            $count++;
+            for($i=0; $i<random_int(1,5);$i++){
+                $t=random_int(1,count($tags));
+                if(!in_array($t,$alreadyAdded)){
+                    array_push($alreadyAdded,$t);
+                    $tmp=['tagid'=>$t,'productid'=>$count];
+                    $_POST['data']=$tmp;
+                    $product_tag->clearEntity();
+                    $product_tag->patchEntity($tmp);
+                    $product_tag->save();
+                }
+            }
+            $alreadyAdded=[];
         }
 
 

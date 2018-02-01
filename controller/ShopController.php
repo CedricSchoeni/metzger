@@ -26,6 +26,7 @@ class ShopController extends BaseController implements ControllerInterface
             ->addCond('product','discount',3,0,true)
             ->limitOffset(6);
         $this->renderer->setAttribute('products',$statement->executeStatement());
+        $this->renderer->headerIndex=0;
     }
 
     public function add()
