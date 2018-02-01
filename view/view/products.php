@@ -28,7 +28,6 @@
         <?php
 
         $products=$this->products;
-        //var_dump($products);
         $noImg="https://i.imgur.com/72xjDmY.jpg";
         $path="/NesriDiscount/assets/images/products/";
         for ($i=0; $i<count($products); $i++) {
