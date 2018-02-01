@@ -213,6 +213,7 @@ function changeAmount(productId, str, priceId, price){
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
             if (this.responseText != ""){
                 amount.innerHTML = this.responseText;
                 priceAll.innerHTML = parseInt(priceAll.innerHTML)+(this.responseText-oldAmount) * price;
