@@ -94,7 +94,28 @@ class ShopController extends BaseController implements ControllerInterface
 
     public function edit(int $id)
     {
-        // TODO: Implement edit() method.
+        if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User')){
+            $data = $this->httpHandler->getData();
+            if($data['id']!=$id){
+                $this->httpHandler->redirect('cart','cart');
+                die("invalid id, canceling edit");
+            }
+            $discount=null;
+            if($data['discount']>0 && $data['discount']<100){
+                $discount=($data['discount']/100);
+            }
+            $this->renderer->queryBuilder->setMode(1)
+                ->setTable("product")
+                ->setColsWithValues('product',
+                    array('productname','stock','price','discount','description'),
+                    array($data['productname'],$data['stock'],$data['price'],$discount,$data['description']))
+                ->addCond('product','userfk',0,$this->renderer->sessionManager->getSessionItem('User','id'),1)
+                ->addCond('product','id',0,$data['id'],true)
+                ->executeStatement();
+            $this->httpHandler->redirect('user','user');
+        }else
+            $this->httpHandler->redirect('shop','index');
+
     }
 
     public function sell(){
