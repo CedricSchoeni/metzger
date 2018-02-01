@@ -20,7 +20,12 @@ class ShopController extends BaseController implements ControllerInterface
 
     public function index()
     {
-        // TODO: Implement index() method.
+        $this->renderer->headerIndex = 2;
+        $statement=$this->renderer->queryBuilder->setMode(0)->setTable('product')
+            ->addCond('product','stock',3,'0','true')
+            ->addCond('product','discount',3,0,true)
+            ->limitOffset(6);
+        $this->renderer->setAttribute('products',$statement->executeStatement());
     }
 
     public function add()

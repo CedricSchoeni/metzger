@@ -48,7 +48,7 @@
             <div class="menu_block">
                 <nav  class="" >
                     <ul class="sf-menu">
-                        <li class="<?php if ($this->headerIndex == 0) echo'current'?>"><a href="/base/index">Home</a></li>
+                        <li class="<?php if ($this->headerIndex == 0) echo'current'?>"><a href="/shop/index">Home</a></li>
                         <li class="<?php if ($this->headerIndex == 1) echo'current'?>"><a href="/base/about">About</a></li>
                         <li class="<?php if ($this->headerIndex == 2) echo'current'?>"><a href="/shop/products">Products</a></li>
                         <li class="<?php if ($this->headerIndex == 3) echo'current'?>"><a href="/base/partners">Our Partners</a></li>
