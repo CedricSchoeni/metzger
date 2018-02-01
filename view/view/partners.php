@@ -48,7 +48,7 @@
     </div>
     <div class="clear"></div>
     <div class="logos">
-      <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt="Nesiri" title="Nesiri Java Online"></a></div>
+      <div class="grid_4"><a href="#"><img src="/NesriDiscount/assets/images/oneLineFirmenlogo.png" alt="Nesiri" title="Nesiri Java oneLine"></a></div>
       <div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt="BossBaby" title="BossBaby"></a></div>
       <div class="grid_4"><a href="http://www.UgandaOnline.com"><img src="https://pbs.twimg.com/media/DS45VGDXkAAQsGW.png" alt="UgandaOnline" title="Uganda Online"></a></div>
     </div>
