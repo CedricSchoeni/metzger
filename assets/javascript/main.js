@@ -208,6 +208,7 @@ function changeAmount(productId, str, priceId, price, discount){
     var amount = document.getElementById(productId);
     var priceElem = document.getElementById(priceId);
     var priceAll = document.getElementById('price');
+    var oldPriceEleme = document.getElementById('old'+priceId);
     var oldAmount = parseInt(amount.innerHTML);
     var newAmount = oldAmount + str;
     xhttp = new XMLHttpRequest();
@@ -217,9 +218,9 @@ function changeAmount(productId, str, priceId, price, discount){
             if (this.responseText != ""){
                 amount.innerHTML = this.responseText;
                 var newPrice = (price * (1 - discount));
-                priceAll.innerHTML = (parseInt(priceAll.innerHTML.split(-1,1))+(this.responseText-oldAmount) * newPrice);
-                priceElem.innerHTML = this.responseText * newPrice;
-
+                priceAll.innerHTML = parseFloat(Math.round( (Math.ceil((parseFloat(priceAll.innerHTML.split(-1,1))+(this.responseText-oldAmount) * newPrice) * 100) / 100).toFixed(2)*20)/20).toFixed(2) +"$";
+                priceElem.innerHTML = parseFloat(Math.round( (Math.ceil((this.responseText * newPrice) * 100) / 100).toFixed(2)*20)/20).toFixed(2) +"$";
+                oldPriceEleme.innerHTML =  parseFloat(Math.round( (Math.ceil((this.responseText * price) * 100) / 100).toFixed(2)*20)/20).toFixed(2) +"$";
             }
         }
     };
