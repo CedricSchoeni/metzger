@@ -23,7 +23,7 @@ if(!file_exists($target_dir.$image))
         <div class="title"><?php echo$product['productname']?></div>
       <ul class="list l1">
           <li>Product Owner: <?php echo$product['username']?></li>
-          <li>Price: <?php echo$product['price']?></li>
+          <li>Price: <?php echo $this->htmlHelper->formatPrice($product['price'], $product['discount'])?></li>
           <li>Stock: <?php echo$product['stock']?></li>
           <li>
               <div class="sectionTitle">Tags</div>
