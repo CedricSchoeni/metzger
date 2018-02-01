@@ -7,9 +7,9 @@
  */
 ?>
 <?php $datBoi=$this;
-if($datBoi->alert['alert']){
+if($datBoi->sessionManager->isSet('alert')){
  ?>
-<script>customMessage("<?php echo$datBoi->alertTitle?>","<?php echo$datBoi->alertContent?>",<?php echo$datBoi->alertGood?>)</script>
+<script>customMessage("<?php echo$datBoi->sessionManager->getSessionItem('alert','title')?>","<?php echo$datBoi->sessionManager->getSessionItem('alert','content')?>",<?php echo$datBoi->sessionManager->getSessionItem('alert','good')?>)</script>
 <?php }
 ?>
 <div class="content">
@@ -84,7 +84,7 @@ if($datBoi->alert['alert']){
                             <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
                         <div class="btns">
                             <!--<button type="reset" class="btn">Clear</button>-->
-                            <button type="submit" class="btn">Edit</button>
+                            <button type="submit" class="btn" disabled>Edit</button>
                         </div>
                 </fieldset>
                 <?php echo $this->formHelper->endForm(); ?>

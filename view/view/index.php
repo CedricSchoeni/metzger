@@ -105,7 +105,7 @@ FLOURISH.</span></h2>
         <blockquote>
           <img src="https://png.icons8.com/dotty/128/000000/user-male.png" alt="" class="img_inner fleft">
           <div class="extra_wrapper">
-            <p>“I was considering buying stakes in this company's shop but once i saw the background code chaos I decided not to go through with it.”</p>
+            <p>“I was considering buying stakes in this company's shop but once I saw the background code chaos I decided not to go through with it.”</p>
             <span class="col2 upp">James Bond  </span> - client
           </div>
         </blockquote>

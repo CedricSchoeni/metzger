@@ -39,7 +39,7 @@
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label for="discount">
-                    <input type="number"  step="1" min="1" max="99" name="discount" placeholder="Discount (optional)">
+                    <input type="number"  step="1" min="1" max="99" name="discount" placeholder="Discount in % (optional)">
                     <br class="clear">
                     </label>
 

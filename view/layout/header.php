@@ -35,9 +35,9 @@
 <div id="alertContainer" class="customMessageContainer" style="visibility: hidden">
     <div class="customMessageBackground" id="alertBackground"></div>
     <div class="customMessageBox" id="alertBox">
-        <div id="alertBoxTitle" class="customMessageTitle"></div>
-        <div id="alertBoxContent" class="customMessageContent"></div>
-        <a class="customMessageClose" id="alertBoxClose" onclick=""></a>
+        <div id="alertBoxTitle" class="customMessageTitle title"></div><a class="customMessageClose" id="alertBoxClose" onclick="closeMessage()">close</a>
+        <div id="alertBoxContent" class="customMessageContent text1"></div>
+
     </div>
 </div>
 <!--==============================header=================================-->
