@@ -57,6 +57,11 @@ class CartController extends BaseController
                 ->addCond('cart', 'id', 0, $id, 'true')
                 ->addCond('cart', 'userfk', 0, $this->renderer->sessionManager->getSessionItem('User', 'id'), 'true')
                 ->executeStatement();
+            $this->renderer->sessionManager->setSessionArray('alert',array(
+                'alert'=>true,
+                'title'=>'Item has been removed from your cart.',
+                'content'=>'Item successfully removed',
+                'good'=>'true'));
             $this->httpHandler->redirect('cart', 'cart');
         }
     }
@@ -83,6 +88,7 @@ class CartController extends BaseController
                         ->setColsWithValues('cart', array('id', 'productfk', 'userfk', 'amount'), array('', $id, $this->renderer->sessionManager->getSessionItem('User', 'id'), $newAmount))
                         ->executeStatement();
                 }
+
                 $this->httpHandler->redirect('cart', 'cart');
             } else {
                 $this->httpHandler->redirect('shop', 'products');
