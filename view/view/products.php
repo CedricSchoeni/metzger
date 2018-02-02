@@ -43,7 +43,7 @@
                 <div class="wordBreak"><?php echo$products[$i]["Description"]?></div><br>
                 <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>
             </div>
-            <?php } ?>
+            <?php if($i>1 && 3%$i-1==0)echo"<div class='clear'></div>";} ?>
 
     </div>
   </div>
