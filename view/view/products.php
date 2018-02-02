@@ -28,14 +28,12 @@
         <?php
 
         $products=$this->products;
-        //var_dump($products);
         $noImg="https://i.imgur.com/72xjDmY.jpg";
         $path="/NesriDiscount/assets/images/products/";
         for ($i=0; $i<count($products); $i++) {
             $image=$noImg;
             if($products[$i]['Image']!=null)
                 $image=$path.$products[$i]['Image'];
-
             ?>
             <div class="grid_4">
                 <a href="<?php echo$image?>" class="gal"><img src="<?php echo$image?>" alt=""></a>
@@ -43,7 +41,8 @@
                 <div class="wordBreak"><?php echo$products[$i]["Description"]?></div><br>
                 <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>
             </div>
-            <?php if($i>1 && 3%$i-1==0)echo"<div class='clear'></div>";} ?>
+            <?php if($i>1 && ($i+1)%3==0)echo"<div class='clear'></div>
+";} ?>
 
     </div>
   </div>

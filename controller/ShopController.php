@@ -26,12 +26,13 @@ class ShopController extends BaseController implements ControllerInterface
             ->addCond('product','discount',3,0,true)
             ->limitOffset(6);
         $this->renderer->setAttribute('products',$statement->executeStatement());
+        $this->renderer->headerIndex=0;
     }
 
     public function add()
     {
         if(!$this->renderer->sessionManager->isSet("User")){
-            $this->httpHandler->redirect("base","index");
+            $this->httpHandler->redirect("shop","index");
         }
 
         if($this->httpHandler->isPost() && isset($_POST['tag1']) && $_POST['tag1'] != "") {
@@ -84,14 +85,7 @@ class ShopController extends BaseController implements ControllerInterface
                 }
                 $this->httpHandler->redirect("shop","products");
             }
-            /*if($product->isValid())
-                echo "trulmeo";
-            else
-                echo"falselmeo";
-            var_dump($data);*/
         }
-
-
     }
 
     public function view(int $id)
@@ -160,8 +154,8 @@ class ShopController extends BaseController implements ControllerInterface
     public function buy(int $id){
         if($this->httpHandler->isPost()){
             $data = $this->httpHandler->getData();
-            if($data['id']!=$id || $data['stock']<$data['amount']){
-                $this->httpHandler->redirect("base","index");
+            if($data['id']!=$id || $data['stock']<$data['amount'] || !$this->renderer->sessionManager->isSet('User')){
+                $this->httpHandler->redirect("shop","index");
                 die("error, invalid purchase");
             }
             $this->renderer->queryBuilder->setMode(1)->setTable('product')

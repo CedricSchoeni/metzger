@@ -147,6 +147,10 @@ function customMessage(title, content, good){
     }
     document.getElementsByTagName("body")[0].style.overflow="hidden";
 }
+function closeMessage(){
+    document.getElementById("alertContainer").style.visibility="hidden";
+    document.getElementsByTagName("body")[0].style.overflow="";
+}
 
 
 
