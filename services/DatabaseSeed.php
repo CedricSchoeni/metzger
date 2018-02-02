@@ -116,6 +116,25 @@ class DatabaseSeed
             $tag->patchEntity($t);
             $tag->save();
         }
+
+        $this->product_tag($prod,$tags);
+    }
+
+
+    private function dropDatabase($dbName){
+        $stmt = "drop database if exists ".$dbName;
+        return$stmt;
+    }
+
+    private function createDatabase($dbName){
+        $stmt = "create database if not exists ".$dbName;
+        return$stmt;
+    }
+    private function useDatabase($dbName){
+        $stmt = "use ".$dbName;
+        return$stmt;
+    }
+    private function product_tag($prod, $tags){
         $product_tag=new product_tag();
 
         $alreadyAdded=[];
@@ -135,41 +154,5 @@ class DatabaseSeed
             }
             $alreadyAdded=[];
         }
-
-
-
-
-
-        // Creation of new Roles in DB
-        /*
-        $role = new Role();
-        $data = [];
-        $singleData1 = ['RoleName' => 'User'];
-        $singleData2 = ['RoleName' => 'Admin'];
-        $data[] = $singleData1;
-        $data[] = $singleData2;
-        foreach ($data as $singleData){
-            $role->clearEntity();
-            $role->patchEntity($singleData);
-            if ($role->isValid(2)){
-                $role->save();
-            }
-        }
-        */
-    }
-
-
-    private function dropDatabase($dbName){
-        $stmt = "drop database if exists ".$dbName;
-        return$stmt;
-    }
-
-    private function createDatabase($dbName){
-        $stmt = "create database if not exists ".$dbName;
-        return$stmt;
-    }
-    private function useDatabase($dbName){
-        $stmt = "use ".$dbName;
-        return$stmt;
     }
 }
