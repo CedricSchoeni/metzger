@@ -28,11 +28,13 @@
         <?php
 
         $products=$this->products;
+        $target_dir = __DIR__."/../../../";
         $noImg="https://i.imgur.com/72xjDmY.jpg";
         $path="/NesriDiscount/assets/images/products/";
         for ($i=0; $i<count($products); $i++) {
             $image=$noImg;
             if($products[$i]['Image']!=null)
+                if(file_exists($target_dir.$path.$products['Image']))
                 $image=$path.$products[$i]['Image'];
             ?>
             <div class="grid_4">
