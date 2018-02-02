@@ -34,7 +34,7 @@
         for ($i=0; $i<count($products); $i++) {
             $image=$noImg;
             if($products[$i]['Image']!=null)
-                if(file_exists($target_dir.$path.$products['Image']))
+                if(file_exists($target_dir.$path.$products[$i]['Image']))
                 $image=$path.$products[$i]['Image'];
             ?>
             <div class="grid_4">
