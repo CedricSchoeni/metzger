@@ -89,11 +89,11 @@ class DatabaseSeed
         $product = new Product();
         $proddata = [];
         $prod=[];
-        $prod[0] = ['userfk' =>'1','productname' =>'Digger Man', 'image' =>'diggerman.jpg','stock' => 200,'price' => 50, 'discount' =>0.2, 'description' =>'This is the world-wide famous diggerman, he digs and he\'s a cis-white male! '];
-        $prod[1] = ['userfk' =>'1','productname' =>'A Noose Rope', 'image' =>'Kids.jpg','stock' => 500,'price' => 200, 'discount' =>0.5, 'description' =>'This noose is already tied with this rope so you can use it for whatever you want!'];
-        $prod[2] = ['userfk' =>'1','productname' =>'Jeff 21JumpStreet', 'image' =>'JmDbE.gif','stock' => 2100,'price' => 420, 'discount' =>0.21, 'description' =>'This is imagery of god himself.'];
-        $prod[3] = ['userfk' =>'1','productname' =>'Mr.Worldwide', 'image' =>'json.jpg','stock' => 20,'price' => 360, 'discount' =>0, 'description' =>'Buy a world with mr. worldwide today!'];
-        $prod[4] = ['userfk' =>'2','productname' =>'Border Warfare', 'image' =>'mexicanswelcome.jpg','stock' => 1024,'price' => 1488, 'discount' =>0, 'description' =>'This new Border Warfare has come out on all consoles (WII U included).'];
+        $prod[0] = ['userfk' =>'1','productname' =>'CsBe 24/7 Support', 'image' =>'csbe_support.png','stock' => 200,'price' => 50, 'discount' =>0.2, 'description' =>'If the Clipboard data is in a format that the object does not support, the CanPaste property is False. For example, if you try to paste a bitmap into an object that only supports text, CanPaste will be False.'];
+        $prod[1] = ['userfk' =>'1','productname' =>'Supreme Kurt', 'image' =>'kurt..png','stock' => 500,'price' => 200, 'discount' =>0.5, 'description' =>'„So, nun passt Alle gut auf. Ich zeige euch wie man einen Gott umbringt.“ (Prinzessin Mononoke)'];
+        $prod[2] = ['userfk' =>'1','productname' =>'Kurt Original', 'image' =>'maybe_kurt.png','stock' => 2100,'price' => 420, 'discount' =>0.21, 'description' =>'🙂🙂🙂🙂🙂🙂🙂🙂🙂😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭'];
+        $prod[3] = ['userfk' =>'1','productname' =>'Mr Krabs', 'image' =>'maxresdefault (3).jpg','stock' => 20,'price' => 360, 'discount' =>0, 'description' =>'Spongebob Squarepants'];
+        $prod[4] = ['userfk' =>'2','productname' =>'CsBe private lessons', 'image' =>'schmitz_v3.png','stock' => 1024,'price' => 1488, 'discount' =>0, 'description' =>'This new Border Warfare has come out on all consoles (WII U included).'];
         $prod[5] = ['userfk' =>'1','productname' =>'John Scarce', 'image' =>'ScarceIsThicc.jpg','stock' => 50,'price' => 1942, 'discount' =>0.25, 'description' =>'Hey what\'s up guys it\'s Scarce here.'];
         foreach($prod as $temp)
         array_push($proddata,$temp);
