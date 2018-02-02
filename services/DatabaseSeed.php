@@ -95,6 +95,7 @@ class DatabaseSeed
         $prod[3] = ['userfk' =>'1','productname' =>'Mr Krabs', 'image' =>'maxresdefault (3).jpg','stock' => 20,'price' => 360, 'discount' =>0, 'description' =>'Spongebob Squarepants'];
         $prod[4] = ['userfk' =>'2','productname' =>'CsBe private lessons', 'image' =>'schmitz_v3.png','stock' => 1024,'price' => 1488, 'discount' =>0, 'description' =>'Get your IT certificate for free.'];
         $prod[5] = ['userfk' =>'1','productname' =>'John Scarce', 'image' =>'ScarceIsThicc.jpg','stock' => 50,'price' => 1942, 'discount' =>0.25, 'description' =>'Hey what\'s up guys it\'s Scarce here.'];
+        $prod[6] = ['userfk' =>'1','productname' =>'Jeff 21JumpStreet', 'image' =>'JmDbE.gif','stock' => 2100,'price' => 420, 'discount' =>0.21, 'description' =>'This is imagery of god himself.'];
         foreach($prod as $temp)
         array_push($proddata,$temp);
         foreach ($proddata as $p){
