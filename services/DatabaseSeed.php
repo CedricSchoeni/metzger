@@ -93,7 +93,7 @@ class DatabaseSeed
         $prod[1] = ['userfk' =>'1','productname' =>'Supreme Kurt', 'image' =>'kurt..png','stock' => 500,'price' => 200, 'discount' =>0.5, 'description' =>'„So, nun passt Alle gut auf. Ich zeige euch wie man einen Gott umbringt.“ (Prinzessin Mononoke)'];
         $prod[2] = ['userfk' =>'1','productname' =>'Kurt Original', 'image' =>'maybe_kurt.png','stock' => 2100,'price' => 420, 'discount' =>0.21, 'description' =>'🙂🙂🙂🙂🙂🙂🙂🙂🙂😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭'];
         $prod[3] = ['userfk' =>'1','productname' =>'Mr Krabs', 'image' =>'maxresdefault (3).jpg','stock' => 20,'price' => 360, 'discount' =>0, 'description' =>'Spongebob Squarepants'];
-        $prod[4] = ['userfk' =>'2','productname' =>'CsBe private lessons', 'image' =>'schmitz_v3.png','stock' => 1024,'price' => 1488, 'discount' =>0, 'description' =>'This new Border Warfare has come out on all consoles (WII U included).'];
+        $prod[4] = ['userfk' =>'2','productname' =>'CsBe private lessons', 'image' =>'schmitz_v3.png','stock' => 1024,'price' => 1488, 'discount' =>0, 'description' =>'Get your IT certificate for free.'];
         $prod[5] = ['userfk' =>'1','productname' =>'John Scarce', 'image' =>'ScarceIsThicc.jpg','stock' => 50,'price' => 1942, 'discount' =>0.25, 'description' =>'Hey what\'s up guys it\'s Scarce here.'];
         foreach($prod as $temp)
         array_push($proddata,$temp);
@@ -105,10 +105,10 @@ class DatabaseSeed
         }
         $tag = new Tag();
         $tags=[];
-        $tags[0]=['tagname'=>'Official'];
-        $tags[1]=['tagname'=>'Meme'];
-        $tags[2]=['tagname'=>'Very Good'];
-        $tags[3]=['tagname'=>'HD'];
+        $tags[0]=['tagname'=>'CsBe'];
+        $tags[1]=['tagname'=>'Nesri'];
+        $tags[2]=['tagname'=>'Microsoft'];
+        $tags[3]=['tagname'=>'Copyright infringement'];
         $tags[4]=['tagname'=>'SCRUM'];
         foreach($tags as $t){
             $_POST['data']=$tags;
