@@ -89,7 +89,7 @@ class DatabaseSeed
         $product = new Product();
         $proddata = [];
         $prod=[];
-        $prod[0] = ['userfk' =>'1','productname' =>'CsBe 24/7 Support', 'image' =>'csbe_support.png','stock' => 200,'price' => 50, 'discount' =>0.2, 'description' =>'If the Clipboard data is in a format that the object does not support, the CanPaste property is False. For example, if you try to paste a bitmap into an object that only supports text, CanPaste will be False.'];
+        $prod[0] = ['userfk' =>'1','productname' =>'CsBe 24/7 Support', 'image' =>'csbe_support.png','stock' => 200,'price' => 100000, 'discount' =>0, 'description' =>'If the Clipboard data is in a format that the object does not support, the CanPaste property is False. For example, if you try to paste a bitmap into an object that only supports text, CanPaste will be False.'];
         $prod[1] = ['userfk' =>'1','productname' =>'Supreme Kurt', 'image' =>'kurt..png','stock' => 500,'price' => 200, 'discount' =>0.5, 'description' =>'„So, nun passt Alle gut auf. Ich zeige euch wie man einen Gott umbringt.“ (Prinzessin Mononoke)'];
         $prod[2] = ['userfk' =>'1','productname' =>'Kurt Original', 'image' =>'maybe_kurt.png','stock' => 2100,'price' => 420, 'discount' =>0.21, 'description' =>'🙂🙂🙂🙂🙂🙂🙂🙂🙂😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭'];
         $prod[3] = ['userfk' =>'1','productname' =>'Mr Krabs', 'image' =>'maxresdefault (3).jpg','stock' => 20,'price' => 360, 'discount' =>0, 'description' =>'Spongebob Squarepants'];
