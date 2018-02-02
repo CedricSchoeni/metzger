@@ -1,6 +1,6 @@
 .dontLook{visibility: hidden;}
 .title{word-wrap: break-word}
-.description{word-break: break-all}
+.description{word-break: break-all; font-family:  'Open Sans', sans-serif;font-size: 18px;}
 .wordBreak{word-break: break-all}
 
 .customMessageContainer{position: fixed;  height: 100vh; width: 100%; z-index: 12345;}
