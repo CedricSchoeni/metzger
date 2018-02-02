@@ -143,7 +143,9 @@ function customMessage(title, content, good){
     document.getElementById("alertBoxTitle").innerHTML=title;
     document.getElementById("alertBoxContent").innerHTML=content;
     if(good===false){
-        document.getElementById("alertBoxTitle").style.color="red";
+        document.getElementById("alertBoxTitle").style.backgroundColor="indianred";
+    }else{
+        document.getElementById("alertBoxTitle").style.backgroundColor="forestgreen";
     }
     document.getElementsByTagName("body")[0].style.overflow="hidden";
 }
@@ -183,6 +185,7 @@ function filterResults(str){
         if (this.readyState == 4 && this.status == 200) {
             var content = "";
             //console.log(this.responseText);
+            var counter = 0;
             JSON.parse(this.responseText).forEach(function(element) {
                 var image = (element[2] != "") ? '/NesriDiscount/assets/images/products/'+element[2] : "https://i.imgur.com/72xjDmY.jpg";
                 content += '<div class="grid_4">' +
@@ -191,6 +194,7 @@ function filterResults(str){
                     '<div class="wordBreak">'+element[3]+'</div><br>' +
                     '<a href="/shop/product/'+element[0]+'">Go to Product Details</a>' +
                     '</div>';
+                content += (++counter % 3 == 0) ? '<div class="clear"></div>' : '';
             });
             productContainer.innerHTML = content;
         }
