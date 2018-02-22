@@ -4,13 +4,15 @@
 $product = $this->product[0];
 $tags = ($this->tag[0]['tagname'] != null) ? $this->tag : null;
 $image="https://i.imgur.com/72xjDmY.jpg";
-$path="/NesriDiscount/assets/images/products/";
+$path="/NesriDiscount2/assets/images/products/";
 if($product['image']!=null)
     $image=$path.$product['image'];
 $target_dir = __DIR__."/../../../";
 if(!file_exists($target_dir.$image))
     $image="https://i.imgur.com/72xjDmY.jpg";
-    ?>
+$loggedIn=$this->sessionManager->isSet('User');
+var_dump($this->owner);
+?>
 <div class="content">
   <div class="container_12">
     <div class="grid_12">
@@ -36,12 +38,18 @@ if(!file_exists($target_dir.$image))
           <li>Rating: <?php echo$product['rating']?>/5</li>
           <?php }?>
           <li>
-
+              <?php if($loggedIn){?>
               <?php echo $this->formHelper->createForm("user","/cart/addCart/$product[id]","POST","Buy"); ?>
+              <?php }else{echo $this->formHelper->createForm("user","/user/user/","POST","User");}?>
               <input type="number" name="amount" value="1" min="1" max="<?php echo$product['stock']?>">
               <input type="hidden" name="id" value="<?php echo$product['id']?>">
               <div class="btns">
+                  <?php if($loggedIn){?>
                   <button type="submit" class="btn">Add to Cart</button>
+                      <?php if($this->owner){echo"<a href='/shop/update/$product[id]' class='col1'>Edit Product</a>";}
+                  }else{?>
+                  <button class="btn">Log in to Buy</button>
+                  <?php }?>
               </div>
               <?php echo $this->formHelper->endForm(); ?>
           </li>

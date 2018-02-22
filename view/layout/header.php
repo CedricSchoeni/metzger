@@ -11,28 +11,33 @@
 <head>
     <title>NesriDiscount</title>
     <meta charset="utf-8">
-    <link rel="icon" href="/NesriDiscount/assets/images/favicon.ico">
-    <link rel="shortcut icon" href="/NesriDiscount/assets/images/favicon.ico" />
-    <link rel="stylesheet" href="/NesriDiscount/assets/css/main.css">
-    <link rel="stylesheet" href="/NesriDiscount/assets/css/style.css">
-    <link rel="stylesheet" href="/NesriDiscount/assets/css/camera.css">
-    <link rel="stylesheet" href="/NesriDiscount/assets/css/form.css">
-    <script src="/NesriDiscount/assets/js/jquery.js"></script>
-    <script src="/NesriDiscount/assets/js/jquery-migrate-1.1.1.js"></script>
-    <script src="/NesriDiscount/assets/js/superfish.js"></script>
-    <script src="/NesriDiscount/assets/js/jquery.equalheights.js"></script>
-    <script src="/NesriDiscount/assets/js/jquery.easing.1.3.js"></script>
-    <script src="/NesriDiscount/assets/js/camera.js"></script>
-    <script src="/NesriDiscount/assets/js/forms.js"></script>
-    <script src="/NesriDiscount/assets/javascript/main.js"></script>
+    <link rel="icon" href="/NesriDiscount2/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/NesriDiscount2/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="/NesriDiscount2/assets/css/main.css">
+    <link rel="stylesheet" href="/NesriDiscount2/assets/css/style.css">
+    <link rel="stylesheet" href="/NesriDiscount2/assets/css/camera.css">
+    <link rel="stylesheet" href="/NesriDiscount2/assets/css/form.css">
+    <script src="/NesriDiscount2/assets/js/jquery.js"></script>
+    <script src="/NesriDiscount2/assets/js/jquery-migrate-1.1.1.js"></script>
+    <script src="/NesriDiscount2/assets/js/superfish.js"></script>
+    <script src="/NesriDiscount2/assets/js/jquery.equalheights.js"></script>
+    <script src="/NesriDiscount2/assets/js/jquery.easing.1.3.js"></script>
+    <script src="/NesriDiscount2/assets/js/camera.js"></script>
+    <script src="/NesriDiscount2/assets/js/forms.js"></script>
+    <script src="/NesriDiscount2/assets/javascript/main.js"></script>
     <!-- Products Page -->
-    <link rel="stylesheet" href="/NesriDiscount/assets/css/touchTouch.css">
-    <script src="/NesriDiscount/assets/js/touchTouch.jquery.js"></script>
+    <link rel="stylesheet" href="/NesriDiscount2/assets/css/touchTouch.css">
+    <script src="/NesriDiscount2/assets/js/touchTouch.jquery.js"></script>
     <!--\Products Page/-->
+    <!--Image Input Dynamic-->
+    <!--link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /-->
+    <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></--script-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <!--\Image Input Dynamic-->
 
 </head>
 <body  style="" class="">
-<div id="alertContainer" class="customMessageContainer" style="visibility: hidden">
+<div id="alertContainer" class="customMessageContainer" style="display: none">
     <div class="customMessageBackground" id="alertBackground"></div>
     <div class="customMessageBox" id="alertBox">
         <div id="alertBoxTitle" class="customMessageTitle"></div><a class="customMessageClose" id="alertBoxClose" onclick="closeMessage()"><img src="https://png.icons8.com/metro/32/000000/close-window.png"></a>
@@ -44,7 +49,7 @@
 <header>
     <div class="container_12">
         <div class="grid_12">
-            <h1><a href="/base/index"><img src="/NesriDiscount/assets/images/notstolen_logo.png" alt="Boo House"></a> </h1>
+            <h1><a href="/base/index"><img src="/NesriDiscount2/assets/images/notstolen_logo.png" alt="Boo House"></a> </h1>
             <div class="menu_block">
                 <nav  class="" >
                     <ul class="sf-menu">

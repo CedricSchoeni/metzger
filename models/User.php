@@ -11,7 +11,7 @@ use services\QueryBuilder;
  */
 class User extends Entity
 {
-    private $id;
+    protected $id;
     public $email;
     public $username;
     public $password;
@@ -34,18 +34,18 @@ class User extends Entity
 
     public function save()
     {
-
-
             $this->queryBuilder->setMode(2)
                 ->setColsWithValues('DBUser', array('id', 'email', 'username', 'password', 'enddate'),
                     array('', $this->email, $this->username, crypt($this->password,self::getSalt()), date("Y-m-d H:i:s")))
                 ->executeStatement();
-
-
     }
 
     public function edit(int $id){
-
+            $this->queryBuilder->setMode(1)
+                ->setColsWithValues('DBUser',array('email','username','password'),
+                    array($this->email,$this->username,$this->password))
+                ->addCond('DBuser','id',0,$this->id,0)
+                ->executeStatement();
     }
 
 

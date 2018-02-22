@@ -27,19 +27,19 @@
     </div>
     <div class="grid_4">
       <div class="icon">
-        <img src="/NesriDiscount/assets/images/icn1.png" alt="">
+        <img src="/NesriDiscount2/assets/images/icn1.png" alt="">
         <div class="title"><a href="#">Membership</a></div>Partners in our Membership program can recieve up to 2.5% more revenue for redirecting you to our site, they also get taxed less when selling by 1.5%.
       </div>
     </div>
     <div class="grid_4">
       <div class="icon">
-        <img src="/NesriDiscount/assets/images/icn2.png" alt="">
+        <img src="/NesriDiscount2/assets/images/icn2.png" alt="">
         <div class="title"><a href="#">Cooperation</a></div>Cooperation between our Partners and us is very important. We see to it that we share all the big data and make it even bigger, bigger better stronger, build that wall!
       </div>
     </div>
     <div class="grid_4">
       <div class="icon">
-        <img src="/NesriDiscount/assets/images/icn3.png" alt="">
+        <img src="/NesriDiscount2/assets/images/icn3.png" alt="">
         <div class="title"><a href="#">Advantages</a></div>Advantages to being our Partner include but are not limited to: being better than the rest of the competition, exchanging big data which makes our big data bigger & getting more traffic in the web.
       </div>
     </div>
@@ -48,8 +48,8 @@
     </div>
     <div class="clear"></div>
     <div class="logos">
-      <div class="grid_4"><a href="https://www.mueller.ch/startseite.html" target="_blank"><img src="/NesriDiscount/assets/images/oneLineFirmenlogo.png" alt="Nesiri" title="Nesiri Java oneLine"></a></div>
-      <div class="grid_4"><a href="http://www.dreamworks.com/thebossbaby/" target="_blank"><img src="/NesriDiscount/assets/images/bossbaby.png" alt="BossBaby" title="BossBay"></a></div>
+      <div class="grid_4"><a href="https://www.mueller.ch/startseite.html" target="_blank"><img src="/NesriDiscount2/assets/images/oneLineFirmenlogo.png" alt="Nesiri" title="Nesiri Java oneLine"></a></div>
+      <div class="grid_4"><a href="http://www.dreamworks.com/thebossbaby/" target="_blank"><img src="/NesriDiscount2/assets/images/bossbaby.png" alt="BossBaby" title="BossBay"></a></div>
       <div class="grid_4"><a href="http://www.UgandaOnline.com" target="_blank"><img src="https://pbs.twimg.com/media/DS45VGDXkAAQsGW.png" alt="UgandaOnline" title="Uganda Online"></a></div>
     </div>
     <div class="grid_12">

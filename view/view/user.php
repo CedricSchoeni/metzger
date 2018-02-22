@@ -6,12 +6,6 @@
  * Time: 09:57
  */
 ?>
-<?php $datBoi=$this;
-if($datBoi->sessionManager->isSet('alert')){
- ?>
-<script>customMessage("<?php echo$datBoi->sessionManager->getSessionItem('alert','title')?>","<?php echo$datBoi->sessionManager->getSessionItem('alert','content')?>",<?php echo$datBoi->sessionManager->getSessionItem('alert','good')?>)</script>
-<?php } $datBoi->sessionManager->unsetSessionArray('alert');
-?>
 <div class="content">
     <div class="container_12">
         <div class="grid_12">
@@ -82,9 +76,17 @@ if($datBoi->sessionManager->isSet('alert')){
                             <input type="email" name="email" placeholder="E-mail" value="<?php echo$user['email']?>" required>
                             <br class="clear">
                             <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
+                        <label class="email">
+                            <input type="password" name="new_password" placeholder="new password" value="">
+                            <br class="clear">
+                            <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
+                        <label class="email">
+                            <input type="password" name="current_password" placeholder="current password" value="" required>
+                            <br class="clear">
+                            <span class="error error-empty">*This is not a valid Jeff.</span><span class="empty error-empty">*This field is required.</span> </label>
                         <div class="btns">
                             <!--<button type="reset" class="btn">Clear</button>-->
-                            <button type="submit" class="btn" disabled>Edit</button>
+                            <button type="submit" class="btn">Edit</button>
                         </div>
                 </fieldset>
                 <?php echo $this->formHelper->endForm(); ?>

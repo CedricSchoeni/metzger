@@ -47,7 +47,7 @@
           <div class="col3"><a href="#">Cedric Somali</a></div>The whole team.
         </div>
         <div class="grid_2">
-          <img src="/NesriDiscount/assets/images/jochen-wydra-foto.png" alt="">
+          <img src="/NesriDiscount2/assets/images/jochen-wydra-foto.png" alt="">
           <div class="col3"><a href="#">Campiotti</a></div>Product Owner.
         </div>
         <div class="grid_2">
@@ -56,7 +56,7 @@
         </div>
         <div class="clear"></div>
         <div class="grid_2">
-          <img src="/NesriDiscount/assets/images/nesri.jpg" alt="">
+          <img src="/NesriDiscount2/assets/images/nesri.jpg" alt="">
           <div class="col3"><a href="#">Eggzone Nesri</a></div>Prior Owner to NesriDiscount, now just Nesri.
         </div>
         <div class="grid_2">

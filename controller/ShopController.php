@@ -31,6 +31,7 @@ class ShopController extends BaseController implements ControllerInterface
 
     public function add()
     {
+
         if(!$this->renderer->sessionManager->isSet("User")){
             $this->httpHandler->redirect("shop","index");
         }
@@ -100,6 +101,48 @@ class ShopController extends BaseController implements ControllerInterface
 
     public function edit(int $id)
     {
+        $tmp=$this->renderer->queryBuilder->setMode(0)
+            ->setTable('product')
+            ->setCols('product',array('dbuserfk'))
+            ->addCond('product','id',0,$id,true)
+            ->executeStatement();
+        $this::$dontRender=true;
+        if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User') && $tmp[0]['dbuserfk']==$this->renderer->sessionManager->getSessionItem('User','id')){
+            $data=$this->httpHandler->getData();
+            $filename= ($data['originalImage']=='null')? null : $data['originalImage'];
+            if(count($_FILES)>0){
+                $fileuploder = new fileUploader();
+                $filename = $fileuploder->upload($_FILES['image']);
+            }
+            if(isset($data['discount'])){
+                if($data['discount']<=0||$data['discount']>=100)
+                    $data['discount']=0;
+            }else
+                $data['discount']=0;
+            if($data['discount']!=0)
+                $data['discount']=($data['discount']/100);
+            $product = new Product();
+            $data['id']=$id;
+            $data['userfk']=$this->renderer->sessionManager->getSessionItem("User","id");
+            $data['image']=$filename;
+            $product->patchEntity($data);
+            if($product->isValid()){
+                $product->edit($id);
+                debug($data);
+                echo"test";
+                //$this->createAlert('Edit successful!','Your product was updated successfully.',true);
+                //$this->httpHandler->redirect('user','user');
+            }else{
+                $this->createAlert('Edit failed!','Invalid input was given.',false);
+                $this->httpHandler->redirect('shop','products');
+            }
+        }else{
+            $this->createAlert('Edit failed!','Invalid form validity.',false);
+            $this->httpHandler->redirect('shop','products');
+        }
+
+
+        /*
         if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User')){
             $data = $this->httpHandler->getData();
             if($data['id']!=$id){
@@ -108,9 +151,9 @@ class ShopController extends BaseController implements ControllerInterface
             }
             $discount=null;
             if($data['discount']>0 && $data['discount']<100){
-                $discount=($data['discount']/100);
+                $data['discount']=($data['discount']/100);
             }
-            $this->renderer->queryBuilder->setMode(1)
+            /*$this->renderer->queryBuilder->setMode(1)
                 ->setTable("product")
                 ->setColsWithValues('product',
                     array('productname','stock','price','discount','description'),
@@ -118,10 +161,26 @@ class ShopController extends BaseController implements ControllerInterface
                 ->addCond('product','userfk',0,$this->renderer->sessionManager->getSessionItem('User','id'),1)
                 ->addCond('product','id',0,$data['id'],true)
                 ->executeStatement();
+            $data['userfk']=$this->renderer->sessionManager->getSessionItem('User','id');
+
             $this->httpHandler->redirect('user','user');
         }else
-            $this->httpHandler->redirect('shop','index');
+            $this->httpHandler->redirect('shop','index');*/
 
+    }
+
+    public function update(int $id){
+        $this->renderer->setAttribute('productID',$id);
+        $product=$this->renderer->queryBuilder->setMode(0)->setTable('Product')
+            ->setCols('Product',array('id','dbuserfk','productname','image','price','discount','stock','description'))
+            ->addCond('Product','id',0,$id,false)
+            ->executeStatement();
+        if($product[0]['dbuserfk']!=$this->renderer->sessionManager->getSessionItem('User','id')){
+            $this->createAlert('Invalid Edit!','You do not own the product you tried to edit!',false);
+            $this->httpHandler->redirect('shop','products');
+            die();
+        }
+        $this->renderer->setAttribute('product',$product[0]);
     }
 
     public function sell(){
@@ -136,7 +195,7 @@ class ShopController extends BaseController implements ControllerInterface
     public function product(int $id){
         $this->renderer->headerIndex = 2;
         $productStatement=$this->renderer->queryBuilder->setMode(0)->setTable('Product')
-            ->setCols('Product',array('id','productname','image','price','discount','stock','rating','description'))
+            ->setCols('Product',array('id','dbuserfk','productname','image','price','discount','stock','rating','description'))
             ->setCols('DBUser',array('username'))
             ->joinTable('DBUser','Product',0,'DBUserFK')
             ->addCond('product','id',0,$id,'')->executeStatement();
@@ -146,12 +205,16 @@ class ShopController extends BaseController implements ControllerInterface
             ->joinTable('product_tag', 'product', '0', 'productfk', true)
             ->joinTable('tags', 'product_tag', '0', 'tagsfk')
             ->addCond('product','id',0,$id,'')->executeStatement();
-
+        $owner=false;
+        if($productStatement[0]['dbuserfk']==$this->renderer->sessionManager->getSessionItem('User','id'))
+            $owner=true;
+        $this->renderer->setAttribute('owner',$owner);
         $this->renderer->setAttribute('product',$productStatement);
         $this->renderer->setAttribute('tag', $tagStatement);
     }
 
     public function buy(int $id){
+        $this::$dontRender=true;
         if($this->httpHandler->isPost()){
             $data = $this->httpHandler->getData();
             if($data['id']!=$id || $data['stock']<$data['amount'] || !$this->renderer->sessionManager->isSet('User')){

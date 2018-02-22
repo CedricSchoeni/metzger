@@ -24,6 +24,7 @@ class BaseController
     protected $queryResult;
     public $controllerName;
     protected static $dontRender;
+    private static $alerts;
 
     public function getQueryResult(){
         return$this->queryResult;
@@ -48,11 +49,33 @@ class BaseController
     public function __destruct()
     {
         if (!BaseController::$dontRender){
+            //$this->setAlerts();
             $this->renderer->renderLayout('header.php');
             $this->renderer->renderByFileName("/view/" .$this->controllerName . "/" . $this->viewTemplate);
             $this->renderer->renderLayout('footer.php');
         }
 
+    }
+
+    public function createAlert($title,$content,bool $good){
+        BaseController::$dontRender=true;
+        $good = ($good==true || $good==1)? 'true' : 'false';
+        $temp=array('alert'=>true,'title'=>$title,'content'=>$content,'good'=>$good);
+        //array_push(BaseController::$alerts,$temp);
+        BaseController::$alerts=$temp;
+        $this->renderer->sessionManager->setSessionArray('alert',$temp);
+
+    }
+
+    private function setAlerts(){
+        BaseController::$dontRender=true;
+        if(count(BaseController::$alerts)>0){
+            $this->renderer->sessionManager->setSessionArray('alert',BaseController::$alerts);
+            BaseController::$alerts=[];
+        }elseif(!empty(BaseController::$alerts)){
+            $this->renderer->sessionManager->setSessionArray('alert',BaseController::$alerts);
+            BaseController::$alerts=[];
+        }
     }
 
     /**

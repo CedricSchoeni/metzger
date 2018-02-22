@@ -8,14 +8,19 @@
 $cartItems = $this->cart;
 $price=0;
 ?>
-
+<?php $datBoi=$this;
+if($datBoi->sessionManager->isSet('alert')){
+    ?>
+    <script>customMessage("<?php echo$datBoi->sessionManager->getSessionItem('alert','title')?>","<?php echo$datBoi->sessionManager->getSessionItem('alert','content')?>",<?php echo$datBoi->sessionManager->getSessionItem('alert','good')?>)</script>
+<?php } $datBoi->sessionManager->unsetSessionArray('alert');
+?>
 <div class="content">
     <div class="container_12">
         <h3 class="pb1"><span>Shopping Cart</span></h3>
         <?php if (!empty($cartItems)){ foreach($cartItems as $cart){?>
         <div class="grid_12 split">
             <div class="grid_2"></div>
-            <div class="grid_4"><img src="<?php echo($cart['image']) ? "/NesriDiscount/assets/images/products/".$cart['image'] :"https://i.imgur.com/72xjDmY.jpg";?>" alt="product_image" class="img_inner fleft"></div>
+            <div class="grid_4"><img src="<?php echo($cart['image']) ? "/NesriDiscount2/assets/images/products/".$cart['image'] :"https://i.imgur.com/72xjDmY.jpg";?>" alt="product_image" class="img_inner fleft"></div>
             <div class="grid_4 extra_wrapper">
                 <div class="title"><?php echo$cart['productname']?></div>
                 <ul class="list2">

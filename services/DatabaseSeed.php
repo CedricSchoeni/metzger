@@ -38,7 +38,6 @@ class DatabaseSeed
      * last test data is inserted in the newly created tables
      */
     public function resetDatabase(){
-
         session_destroy();
 
         $this->dbConnection = new \PDO('mysql:host=localhost;','root','');

@@ -52,6 +52,7 @@ class CartController extends BaseController
     }
 
     function remove($id){
+        $this::$dontRender=true;
         if ($id > 0){
             $this->renderer->queryBuilder->setMode(3)->setTable('cart')
                 ->addCond('cart', 'id', 0, $id, 'true')
@@ -67,6 +68,7 @@ class CartController extends BaseController
     }
 
     function addCart($id){
+        $this::$dontRender=true;
         if ($id > 0 && $this->httpHandler->isPost()){
             // get stock of product
             $stock = $this->renderer->queryBuilder->setMode(0)->setTable('product')
@@ -97,6 +99,7 @@ class CartController extends BaseController
     }
 
     public function buyCart(){
+        $this::$dontRender=true;
         if(!$this->renderer->sessionManager->isSet('User')){
             $this->httpHandler->redirect('base','index');
             die("not logged in!");
@@ -118,6 +121,7 @@ class CartController extends BaseController
 
     }
     private function changeStock($productID,$amount){
+        $this::$dontRender=true;
         if($amount<0)
             return;
         $this->renderer->queryBuilder->setMode(1)

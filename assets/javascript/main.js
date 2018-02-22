@@ -139,7 +139,7 @@ function customMessage(title, content, good){
     if(empty(title) || empty(content)){
         return false;
     }
-    document.getElementById("alertContainer").style.visibility="visible";
+    document.getElementById("alertContainer").style.display="block";
     document.getElementById("alertBoxTitle").innerHTML=title;
     document.getElementById("alertBoxContent").innerHTML=content;
     if(good===false){
@@ -149,8 +149,10 @@ function customMessage(title, content, good){
     }
     document.getElementsByTagName("body")[0].style.overflow="hidden";
 }
+
+
 function closeMessage(){
-    document.getElementById("alertContainer").style.visibility="hidden";
+    document.getElementById("alertContainer").style.display="none";
     document.getElementsByTagName("body")[0].style.overflow="";
 }
 
@@ -187,7 +189,7 @@ function filterResults(str){
             //console.log(this.responseText);
             var counter = 0;
             JSON.parse(this.responseText).forEach(function(element) {
-                var image = (element[2] != "") ? '/NesriDiscount/assets/images/products/'+element[2] : "https://i.imgur.com/72xjDmY.jpg";
+                var image = (element[2] != "") ? '/NesriDiscount2/assets/images/products/'+element[2] : "https://i.imgur.com/72xjDmY.jpg";
                 content += '<div class="grid_4">' +
                     '<a href="'+image+'" class="gal"><img src="'+image+'" alt=""></a>' +
                     '<div class="text1 col1 wordBreak">'+element[1]+'</div>' +
@@ -239,8 +241,23 @@ function changeAmount(productId, str, priceId, price, discount){
     xhttp.open("GET", "/cart/changeAmount/"+productId+"/"+newAmount, true);
     xhttp.send();
 }
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function (e) {
+            $('#imeg')
+                .attr('src', e.target.result);
+                //.width(150)
+                //.height(200);
+        };
 
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function debug(){
+    console.log("mynamejeffxdddddddddddd");
+}
 
 
 

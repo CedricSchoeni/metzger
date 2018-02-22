@@ -11,7 +11,7 @@ namespace models;
 
 class Product extends Entity
 {
-    private $id;
+    protected $id;
     public $userfk;
     public $productname;
     public $description;
@@ -50,6 +50,17 @@ class Product extends Entity
     public function getId()
     {
         return $this->id;
+    }
+
+    public function edit(int $id){
+        if($this->id!=$id)
+            die();
+        $this->queryBuilder->setMode(1)
+            ->setColsWithValues('product',array('id','productname','image','stock','price','discount','description'),
+                array($this->id,$this->productname,$this->image,$this->stock,$this->price,$this->discount,$this->description))
+            ->addCond('product','id',0,$id,true)
+            ->addCond('product','dbuserfk',0,$this->userfk,false)
+            ->executeStatement();
     }
 
 

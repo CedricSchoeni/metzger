@@ -15,7 +15,7 @@
 
     </script>
 </div>
-<?php $arr=[]; $base="/NesriDiscount/assets/images/";
+<?php $arr=[]; $base="/NesriDiscount2/assets/images/";
 array_push($arr,$base."Trump.jpg");
 array_push($arr,$base."Maintenance[1].png");
 array_push($arr,$base."Finesse.jpg")
@@ -42,20 +42,20 @@ FLOURISH.</span></h2>
     </div>
     <div class="grid_4">
       <div class="icon">
-        <img src="/NesriDiscount/assets/images/icon1.png" alt="">
+        <img src="/NesriDiscount2/assets/images/icon1.png" alt="">
         <div class="title">BUYING</div>Fusce quis fermentum nisl. Ut tempus cometum urna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida maecenas sit amet eros conr, convallis.
       </div>
     </div>
     <div class="grid_4">
       <div class="icon">
-        <img src="/NesriDiscount/assets/images/icon2.png" alt="">
+        <img src="/NesriDiscount2/assets/images/icon2.png" alt="">
         <div class="title">SWAGGING</div><span class="col1"><a href="https://ifunny.co" rel="dofollow"> Find </a></span>
           more dank memes than you could ever imagine.
       </div>
     </div>
     <div class="grid_4">
       <div class="icon">
-        <img src="/NesriDiscount/assets/images/icon3.png" alt="">
+        <img src="/NesriDiscount2/assets/images/icon3.png" alt="">
         <div class="title">SELLING</div>Fusce quis fermentum nisl. Ut tempus cometum urna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida maecenas sit amet eros conr, convallis.
       </div>
     </div>
@@ -71,7 +71,7 @@ FLOURISH.</span></h2>
             if(count($products)<6)
                 $count=count($products);
             $noImg="https://i.imgur.com/72xjDmY.jpg";
-            $path="/NesriDiscount/assets/images/products/";
+            $path="/NesriDiscount2/assets/images/products/";
             $dir=__DIR__."/../../../";
             for ($i=0; $i<$count;$i++){
                 $image=$noImg;
@@ -80,7 +80,7 @@ FLOURISH.</span></h2>
                 ?>
       <!--<div class="grid_4"><a href="#"><img src="https://i.imgur.com/72xjDmY.jpg" alt=""></a></div>-->
                 <div class="grid_4">
-                    <a href="<?php echo$image?>" class="gal"><img src="<?php echo$image?>" alt=""></a>
+                    <a href="/shop/product/<?php echo$products[$i]['ID']?>" class="gal"><img src="<?php echo$image?>" alt=""></a>
                     <div class="text1 col1 wordBreak"><?php echo$products[$i]['Productname']?></div>
                     <div class="wordBreak"><?php echo$this->htmlHelper->formatPrice($products[$i]['Price'],$products[$i]['Discount'])?></div><br>
                     <a href="/shop/product/<?php echo$products[$i]['ID']?>">Go to Product Details</a>

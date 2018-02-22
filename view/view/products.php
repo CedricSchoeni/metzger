@@ -30,7 +30,7 @@
         $products=$this->products;
         $target_dir = __DIR__."/../../../";
         $noImg="https://i.imgur.com/72xjDmY.jpg";
-        $path="/NesriDiscount/assets/images/products/";
+        $path="/NesriDiscount2/assets/images/products/";
         for ($i=0; $i<count($products); $i++) {
             $image=$noImg;
             if($products[$i]['Image']!=null)
