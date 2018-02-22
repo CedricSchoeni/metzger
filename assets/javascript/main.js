@@ -247,7 +247,8 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('#imeg')
-                .attr('src', e.target.result);
+                .attr('src', e.target.result)
+                .css('visibility','visible');
                 //.width(150)
                 //.height(200);
         };

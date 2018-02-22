@@ -28,7 +28,7 @@
                     <span class="error error-empty">*This is not a valid phone number.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Image">
                     <input type="file" name="image" onchange="readURL(this);" placeholder="Product-Image.jpeg" accept="image/gif, image/jpeg, image/png">
-                    <img id="imeg" src="#" alt="your image">
+                    <img id="imeg" src="#" alt="your image" style="visibility: hidden;">
                     <br class="clear">
                     <span class="error error-empty">*This is not a valid image.</span><span class="empty error-empty">*This field is required.</span> </label>
                 <label class="Stock">
