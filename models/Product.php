@@ -53,13 +53,16 @@ class Product extends Entity
     }
 
     public function edit(int $id){
-        if($this->id!=$id)
+        if($this->id!=$id){
+            echo"invalid edit!";
             die();
+        }
+
         $this->queryBuilder->setMode(1)
-            ->setColsWithValues('product',array('id','productname','image','stock','price','discount','description'),
-                array($this->id,$this->productname,$this->image,$this->stock,$this->price,$this->discount,$this->description))
+            ->setColsWithValues('product',array('productname','image','stock','price','discount','description'),
+                array($this->productname,$this->image,$this->stock,$this->price,$this->discount,$this->description))
             ->addCond('product','id',0,$id,true)
-            ->addCond('product','dbuserfk',0,$this->userfk,false)
+            ->addCond('product','dbuserfk',0,$this->userfk,true)
             ->executeStatement();
     }
 

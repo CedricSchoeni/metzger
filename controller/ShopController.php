@@ -101,6 +101,7 @@ class ShopController extends BaseController implements ControllerInterface
 
     public function edit(int $id)
     {
+        //$hint="";
         $tmp=$this->renderer->queryBuilder->setMode(0)
             ->setTable('product')
             ->setCols('product',array('dbuserfk'))
@@ -110,10 +111,12 @@ class ShopController extends BaseController implements ControllerInterface
         if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User') && $tmp[0]['dbuserfk']==$this->renderer->sessionManager->getSessionItem('User','id')){
             $data=$this->httpHandler->getData();
             $filename= ($data['originalImage']=='null')? null : $data['originalImage'];
-            if(count($_FILES)>0){
+            if(strlen($_FILES['image']['name'])>1){
+                //$hint.="FileUploader-";
                 $fileuploder = new fileUploader();
                 $filename = $fileuploder->upload($_FILES['image']);
             }
+            //$hint.="orig:".$data['originalImage'].";image:".$filename;
             if(isset($data['discount'])){
                 if($data['discount']<=0||$data['discount']>=100)
                     $data['discount']=0;
@@ -128,45 +131,17 @@ class ShopController extends BaseController implements ControllerInterface
             $product->patchEntity($data);
             if($product->isValid()){
                 $product->edit($id);
-                debug($data);
-                echo"test";
-                //$this->createAlert('Edit successful!','Your product was updated successfully.',true);
-                //$this->httpHandler->redirect('user','user');
+                //echo"<br>end<br>";
+                $this->createAlert('Edit successful!','Your product was updated successfully.'/*.$hint*/,true);
+                $this->httpHandler->redirect('shop','product/'.$id);
             }else{
                 $this->createAlert('Edit failed!','Invalid input was given.',false);
-                $this->httpHandler->redirect('shop','products');
+                $this->httpHandler->redirect('shop','product/'.$id);
             }
         }else{
             $this->createAlert('Edit failed!','Invalid form validity.',false);
-            $this->httpHandler->redirect('shop','products');
+            $this->httpHandler->redirect('shop','product/'.$id);
         }
-
-
-        /*
-        if($this->httpHandler->isPost() && $this->renderer->sessionManager->isSet('User')){
-            $data = $this->httpHandler->getData();
-            if($data['id']!=$id){
-                $this->httpHandler->redirect('cart','cart');
-                die("invalid id, canceling edit");
-            }
-            $discount=null;
-            if($data['discount']>0 && $data['discount']<100){
-                $data['discount']=($data['discount']/100);
-            }
-            /*$this->renderer->queryBuilder->setMode(1)
-                ->setTable("product")
-                ->setColsWithValues('product',
-                    array('productname','stock','price','discount','description'),
-                    array($data['productname'],$data['stock'],$data['price'],$discount,$data['description']))
-                ->addCond('product','userfk',0,$this->renderer->sessionManager->getSessionItem('User','id'),1)
-                ->addCond('product','id',0,$data['id'],true)
-                ->executeStatement();
-            $data['userfk']=$this->renderer->sessionManager->getSessionItem('User','id');
-
-            $this->httpHandler->redirect('user','user');
-        }else
-            $this->httpHandler->redirect('shop','index');*/
-
     }
 
     public function update(int $id){
