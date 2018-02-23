@@ -38,14 +38,18 @@ $loggedIn=$this->sessionManager->isSet('User');
           <?php }?>
           <li>
               <?php if($loggedIn){?>
-              <?php echo $this->formHelper->createForm("user","/cart/addCart/$product[id]","POST","Buy"); ?>
+              <?php if($this->owner){
+                      echo $this->formHelper->createForm("shop","/shop/update/$product[id]","POST","Edit");
+                  }else{echo $this->formHelper->createForm("user","/cart/addCart/$product[id]","POST","Buy");} ?>
               <?php }else{echo $this->formHelper->createForm("user","/user/user/","POST","User");}?>
+              <?php if(!$this->owner){?>
               <input type="number" name="amount" value="1" min="1" max="<?php echo$product['stock']?>">
+              <?php }?>
               <input type="hidden" name="id" value="<?php echo$product['id']?>">
               <div class="btns">
                   <?php if($loggedIn){?>
-                  <button type="submit" class="btn">Add to Cart</button>
-                      <?php if($this->owner){echo"<a href='/shop/update/$product[id]' class='col1'>Edit Product</a>";}
+                  <button type="submit" class="btn"><?php $t="";($this->owner)?$t='Edit Item' : $t='Add to Cart'; echo$t;?></button>
+                      <?php //if($this->owner){echo"<a href='/shop/update/$product[id]' class='col1'>Edit Product</a>";}
                   }else{?>
                   <button class="btn">Log in to Buy</button>
                   <?php }?>
