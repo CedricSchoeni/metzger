@@ -11,7 +11,6 @@ $target_dir = __DIR__."/../../../";
 if(!file_exists($target_dir.$image))
     $image="https://i.imgur.com/72xjDmY.jpg";
 $loggedIn=$this->sessionManager->isSet('User');
-var_dump($this->owner);
 ?>
 <div class="content">
   <div class="container_12">
